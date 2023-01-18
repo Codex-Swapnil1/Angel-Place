@@ -1,10 +1,11 @@
 import "./product.css";
-import { Box, Center, Select, Tab, TabList, TabPanel, TabPanels, Tabs, Text } from "@chakra-ui/react";
+import { Box, Center, HStack, Radio, Select, Tab, TabList, TabPanel, TabPanels, Tabs, Text } from "@chakra-ui/react";
 import { useState } from "react";
-const { log } = console;
+import SingleProductCard from "./SingleProductCard";
 
-export default function ProoductContainer(data) {
-  const [cn,setCn]=useState(1)
+
+export default function ProoductContainer() {
+  const [cn,setCn]=useState(0)
     const handelToggle=()=>{
 setCn(!cn)
     }
@@ -13,6 +14,7 @@ setCn(!cn)
     const selectChange=(e)=>{
  console.log(e.target.value)
     }
+   
   
     return (
     
@@ -43,30 +45,79 @@ setCn(!cn)
             </Box>
           </Box>
         </Box>
-<Box className="filer" display={'flex'} bg="#363736"  alignItems={'center'} >
+<Box className="filer" display={'flex'} bg="#363736"  alignItems={'center'}  >
     <Box><Text color={'gray'} >FilterBy</Text></Box>
    
-    <Tabs color={'white'} >
-  <TabList>
-    <Tab></Tab>
-    <Tab>Two</Tab>
-    <Tab>Three</Tab>
+    <Tabs color={'white'}  >
+  <TabList onClick={handelToggle} >
+    <Tab>Subcatagory</Tab>
+    <Tab>Discount</Tab>
+    <Tab>Price</Tab>
+    <Tab>age</Tab>
+    <Tab>gender</Tab>
+    <Tab>color</Tab>
   </TabList>
 
-  <TabPanels>
-    <TabPanel>
-      <p>one!</p>
-    </TabPanel>
-    <TabPanel>
-      <p>two!</p>
-    </TabPanel>
-    <TabPanel>
-      <p>three!</p>
-    </TabPanel>
-  </TabPanels>
+ {
+  cn? <TabPanels>
+  <TabPanel border={'1px solid red'} >
+   <HStack spacing={3} >
+  
+  <Box display={'flex'} gap={2} >
+    <Text fontSize={'1px'} >Bath Item</Text>
+  <input color="" type={'checkbox'} />
+  </Box>
+  <Box display={'flex'} gap={2} >
+    <Text fontSize={'1px'} >Shorts</Text>
+  <input type={'checkbox'} />
+  </Box>
+  <Box display={'flex'} gap={2} >
+    <Text fontSize={'1px'} >Skirts</Text>
+  <input type={'checkbox'} />
+  </Box>
+   </HStack>
+  </TabPanel>
+  <TabPanel>
+  <HStack spacing={3} >
+  
+  <Box display={'flex'} gap={2} >
+    <Text fontSize={'1px'} >20-30%</Text>
+  <input type={'checkbox'} />
+  </Box>
+  <Box display={'flex'} gap={2} >
+    <Text fontSize={'1px'} >30-40%</Text>
+  <input type={'checkbox'} />
+  </Box>
+  <Box display={'flex'} gap={2} >
+    <Text fontSize={'1px'} >above 40%</Text>
+  <input  type={'checkbox'} />
+  </Box>
+   </HStack>
+  </TabPanel>
+  <TabPanel>
+  <HStack spacing={3} >
+  
+  <Box display={'flex'} gap={2} >
+    <Text fontSize={'1px'} >250-500</Text>
+  <input type={'checkbox'} />
+  </Box>
+  <Box display={'flex'} gap={2} >
+    <Text fontSize={'1px'} >500-800</Text>
+  <input type={'checkbox'} />
+  </Box>
+  <Box display={'flex'} gap={2} >
+    <Text fontSize={'1px'} >800-above</Text>
+  <input type={'checkbox'} />
+  </Box>
+   </HStack>
+  </TabPanel>
+</TabPanels>:null
+ }
 </Tabs>
 
 </Box>
+
+ <SingleProductCard/>
 
 
       </Box>

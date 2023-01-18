@@ -32,3 +32,11 @@
 .hide-div{
     display: none   ;
 }
+
+/* //singlecard */
+
+
+.single-card{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}

@@ -15,12 +15,7 @@ export default function ProductPage(){
         loading:store.Appreducer.isLoading}
     })
     
-     
-    useEffect(()=>{
-
-        dispatch(getprData())
-
-    },[])
+  
 
     
 
