@@ -17,17 +17,16 @@ function getprData(payload) {
   return (dispatch) => {
     dispatch(getdatareq_fn());
 
+   
     return axios
       .get("https://jsonplaceholder.typicode.com/photos", payload)
       .then((res) => {
         dispatch(getdatasucc_fn(res.data));
       })
-      .catch((error)=>{
-        dispatch(getdataerror_fn())
-      })
+      .catch((error) => {
+        dispatch(getdataerror_fn());
+      });
   };
 }
 
-
-
-export { getdataerror_fn, getdatareq_fn, getdatasucc_fn,getprData };
+export { getdataerror_fn, getdatareq_fn, getdatasucc_fn, getprData };
