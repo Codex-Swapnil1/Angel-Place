@@ -2,49 +2,27 @@ const mongoose = require('mongoose')
 
 
 const productSchema = new mongoose.Schema({
-    product_id:{
-        type: String,
-        unique: true,
-        trim: true,
-        required: true
-    },
-    title:{
-        type: String,
-        trim: true,
-        required: true
-    },
-    price:{
-        type: Number,
-        trim: true,
-        required: true
-    },
-    description:{
-        type: String,
-        required: true
-    },
-    content:{
-        type: String,
-        required: true
-    },
-    images:{
-        type: Object,
-        required: true
-    },
-    category:{
-        type: String,
-        required: true
-    },
-    checked:{
-        type: Boolean,
-        default: false
-    },
-    sold:{
-        type: Number,
-        default: 0
-    }
+          "img": String,
+  "title": String,
+  "price":  Number,
+  "mrp": Number,
+  "discount": String,
+  "id":  Number,
+  "clr_size":String,
+  "clr_size 2":String,
+  "clr_size 3": String,
+  "clr_size 4": String,
+  "clr_size 5": String,
+  "clr_size 6": String,
+  "bld_spn": String,
+  "lft": String,
+  "loyal_popup":String,
+  "clr_size 7": String,
+  "qty": Number
+    
 }, {
     timestamps: true //important
 })
 
 
-module.exports = mongoose.model("Products", productSchema)
+module.exports = mongoose.model("girlstop", productSchema)
