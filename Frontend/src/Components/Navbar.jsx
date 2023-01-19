@@ -1,13 +1,17 @@
 import { Box, Button, flexbox, Image, Input, InputGroup, InputRightElement, Popover, PopoverBody, PopoverContent, PopoverTrigger } from '@chakra-ui/react';
 import React from 'react';
 import styled from 'styled-components';
-import { Search2Icon } from "@chakra-ui/icons";
+import { ChevronDownIcon, Search2Icon } from "@chakra-ui/icons";
 import logo from "../Resources/1.png"
 import {CiHeart, CiLocationOn}from "react-icons/ci";
 import {BsCart} from "react-icons/bs"
+import { category } from '../Resources/navbar';
+import BoysFashion from './sub_nav_component/BoysFashion';
+import GirlsFashion from './sub_nav_component/GirlsFashion';
 const Navbar = () => {
   return (
     <NavbarWrapper>
+    <Box className='nav-top'>
       <Box className='nav-top-left'>
         <Image className='logoimg' src="https://cdn.fcglcdn.com/brainbees/images/n/fc_logo.png" alt="logo"/>
         <Box sx={{marginRight:"5px"}}>
@@ -32,7 +36,6 @@ const Navbar = () => {
                         </InputGroup>
         </Box>
       </Box>
-
       <Box className='nav-top-right'>
       <Box sx={{display:"flex"}}>
       <Box sx={{paddingTop:"5px"}}>
@@ -83,6 +86,30 @@ const Navbar = () => {
       </Box>
 
       </Box>
+    </Box>
+    <Box className='nav-bottom'>
+      <p>ALL CATEGORIES <ChevronDownIcon  boxSize={"25px"}/></p>
+      <Box className='category-list'>
+        <Box><BoysFashion/></Box>
+        <Box><GirlsFashion/></Box>
+        <Box>FOOTWEAR</Box>
+        <Box>TOYS</Box>
+        <Box>DIAPERING</Box>
+        <Box>GEAR</Box>
+        <Box>FEEDING</Box>
+        <Box>BATH</Box>
+        <Box>NURSERY</Box>
+        <Box>MOMS</Box>
+        <Box>HEALTH</Box>
+        <Box>BOUTIQUES</Box>
+        <Box>
+          <Image src="https://cdn.fcglcdn.com/brainbees/images/n/club_logo.png" alt="club"/>
+        </Box>
+      </Box>
+      <Box>
+        <Image src="https://cdn.fcglcdn.com/brainbees/banners/FC-menu-carters-logo.webp" alt="carters"/>
+      </Box>
+    </Box>
     </NavbarWrapper>
   )
 }
@@ -90,10 +117,12 @@ const Navbar = () => {
 export default Navbar
 
 const NavbarWrapper = styled.div`
-display: flex;
+.nav-top{
+  display: flex;
 padding : 10px 4%;
 justify-content : space-between;
 gap:5px;
+}
 .nav-top-left{
   display : flex;
   gap : 5px;
@@ -136,6 +165,33 @@ gap:5px;
     };
     margin: 10px 0px;
   }
-
-
+.category-list{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.category-list div{
+  cursor: pointer;
+  font-size: 14px;
+    border-right: none;
+    :hover{
+      text-decoration: none;
+      background-color: white;
+    };
+    font-weight: 400;
+    padding: 5px 6px;
+}
+.nav-bottom{
+  background-color:#ffd91c;
+  padding:0px 4%;
+  display: flex;
+  margin: auto;
+  text-align: center;
+  font-size: 14px;
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 `

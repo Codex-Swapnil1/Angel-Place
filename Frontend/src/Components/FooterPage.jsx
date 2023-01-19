@@ -21,14 +21,14 @@ const FooterPage = () => {
          <div className={style_f.mainContainer}>
 
                {/* <div className={style_f.top_whitediv}>
-                
+
                </div> */}
 
                <div className={style_f.topF}>
 
                     {/* icon div text */}
                    <div className={style_f.icondiv}>
-                      
+
                         <div className={style_f.icon_title}>
                           <img src={staricon} alt="not found" />
                           <span>
@@ -75,7 +75,7 @@ const FooterPage = () => {
                   <div className={style_f.left} >
 
                   <div className={style_f.category1}>
-                          
+
                           <span>CATEGORIES</span>
                            <hr className={style_f.hr1} />
                          <p>Clothing & Fashion</p>
@@ -95,7 +95,7 @@ const FooterPage = () => {
 
                          <span>COMPANY INFO</span>
                          <hr className={style_f.hr1} />
-                        
+
                          <p>About Us</p>
                          <p>Contact Us</p>
                          <p>Brands</p>
@@ -104,7 +104,7 @@ const FooterPage = () => {
 
                      </div>
                      <div className={style_f.category2}>
-  
+
                           <span>FIRSTCRY PARENTING</span>
                           <hr className={style_f.hr1} />
 
@@ -127,7 +127,7 @@ const FooterPage = () => {
                           <p>FirstCry Bangla Parenting</p>
                           <p>FirstCry Arabia Parenting</p>
                           <p>FirstCry UAE Parenting</p>
-                        
+
 
                      </div>
                      <div className={style_f.category3}>
@@ -181,21 +181,21 @@ const FooterPage = () => {
                            <p>PlayBees: 123 Kids Numbers App</p>
                            <p>PlayBees: ABC for Kids</p>
                            <span>CAREER AT FIRSTCRY.COM</span>
-                           
+
                            <p>Current Openings at FirstCry.com</p>
-                          
+
 
 
                      </div>
-                     
+
 
                   </div>
                   <div className={style_f.right} >
 
                       <img src={frenchisestore} alt="" />
-                     
+
                       <img src="https://cdn.fcglcdn.com/brainbees/images/intellitots-franchise-footer-banner.webp" alt="" />
-                    
+
                 </div>
 
                </div>
@@ -206,9 +206,9 @@ const FooterPage = () => {
 
                {/* botom */}
                <hr  className={style_f.hr}/>
-               
+
                <div className={style_f.botomF}>
-                  
+
                      <div className={style_f.toptext}>
                        {/* first  */}
                        <p>FirstCry Baby & Kids Products Online Store
@@ -219,7 +219,7 @@ const FooterPage = () => {
                         <br />
                         From breastfeeding to bathing essentials, right furniture to myriad baby care products, a mother needs them all for her lil' one. This inspires us to offer convenient & hassle-free online shopping not just for babies & kids but for moms-to-be & new moms as well.
                        </p>
-                       
+
                        {/* second */}
                        <p>
                        With 2 Lakh Baby & Kids Products, 2 Million Happy Customers, and 2 Thousand+ top-notch national and international brands like Babyhug, Chicco, Graco, BSA, Johnson & Johnson, Huggies, Pampers, Medela, Pigeon, Mothercare, Fisher-Price, FunSkool, Lego, Disney, Barbie and
@@ -237,7 +237,7 @@ const FooterPage = () => {
                      </div>
 
                      <div className={style_f.botomtext}>
-                        
+
                         <p>
                         Newborn & Baby Products Online Shopping in India
                         <br />
@@ -268,7 +268,7 @@ const FooterPage = () => {
 
                      </div>
 
-                  
+
                </div>
 
 
