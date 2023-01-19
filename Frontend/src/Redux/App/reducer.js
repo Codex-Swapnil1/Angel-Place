@@ -1,26 +1,27 @@
-import * as types from "./actionTypes"
+import * as types from "./actionTypes";
 
+const intstate = {
+  isLoading: false,
+  isError: false,
+  data: [],
+};
 
+const reducer = (state = intstate, action) => {
+  const { payload, type } = action;
 
-const intstate={
-    isLoading:false,
-    isError:false,
-    data:[]
-}
+  switch (type) {
+    case types.GETDATA_req:
+      return { ...state, isLoading: true, isError: false, data: [] };
 
-const reducer=(state=intstate, action)=>{
+    case types.GETDATASUCCESS_succ:
+      return { ...state, isLoading: 0, isError: false, data: payload };
 
-    const {payload,type}=action
+    case types.GETDATAERROR_err:
+      return { ...state, isLoading: false, isError: true };
 
-    switch(type){
-case types.GETDATA_req: return {...state, isLoading:1, isError:0,}
+    default:
+      return state;
+  }
+};
 
-case types.GETDATASUCCESS_succ:return {...state, isLoading:0, isError:0, data:payload}
-
-case types.GETDATAERROR_err:return {...state, isLoading:0, isError:1}
-        
-default :return state
-    }
-}
-
-export{reducer}
+export { reducer };

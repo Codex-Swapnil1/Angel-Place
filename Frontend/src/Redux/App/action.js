@@ -19,7 +19,7 @@ function getprData(payload) {
 
    
     return axios
-      .get("https://jsonplaceholder.typicode.com/photos", payload)
+      .get("http://localhost:8080", payload)
       .then((res) => {
         dispatch(getdatasucc_fn(res.data));
       })

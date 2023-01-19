@@ -36,7 +36,48 @@
 /* //singlecard */
 
 
-.single-card{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
+.singlePr{
+   
+    justify-content: center;
+    place-items: center;
+   display: grid;
+   grid-template-columns: repeat(5,1fr);
+    margin: auto;
+   
+    width: 90%;
+    grid-gap: 30px;
+  background-color: #333333;
+ 
+
+    
+    
+}
+
+/* //singlechild */
+
+.single-child{
+   
+    width: 90%;
+    
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    gap: 5px;
+    background-color: aliceblue;
+    
+   
+   
+   
+}
+.single-child:hover{
+   
+
+border: 3px solid orange;
+
+    margin: auto;
+    border-radius: 1%;
+    cursor: pointer;
 }
