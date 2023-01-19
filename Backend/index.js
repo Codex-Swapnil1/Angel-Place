@@ -1,27 +1,51 @@
+require("dotenv").config();
 const express = require("express");
-const { connection } = require("./config/db");
+const mongoose = require("mongoose");
 const cors = require("cors");
-// const { userRouter } = require("./routes/User.route");
-// const { authenticate } = require("./middlewares/auhtenticate.mw");
-// const { postRouter } = require("./routes/Post.route");
+const fileUpload = require("express-fileupload");
+const cookieParser = require("cookie-parser");
+const path = require("path");
+
 const app = express();
-
 app.use(express.json());
+app.use(cookieParser());
 app.use(cors());
-
+app.use(
+  fileUpload({
+    useTempFiles: true,
+  })
+);
+// Routes
 app.get("/", (req, res) => {
-  res.send("Home Page");
+  res.send({ msg: "Welcome to First Cry Clone" });
 });
+app.use("/user", require("./routes/userRouter"));
+app.use("/api", require("./routes/categoryRouter"));
+app.use("/api", require("./routes/upload"));
+app.use("/api", require("./routes/productRouter"));
+// app.use('/api', require('./routes/paymentRouter'))
 
-
-
-app.listen(8080, async (req, res) => {
-  try {
-    await connection;
-    console.log("Connected to DB");
-  } catch (err) {
-    console.log(err);
-    console.log({ err: "Error while connecting to DB" });
+// Connect to mongodb
+const URI = process.env.MONGODB_URL;
+mongoose.connect(
+  URI,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  },
+  (err) => {
+    if (err) throw err;
+    console.log("Connected to MongoDB");
   }
-  console.log("Running at PORT 8080");
+);
+// if (process.env.NODE_ENV === 'production') {
+//     app.use(express.static('client/build'))
+//     app.get('*', (req, res) => {
+//         res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'))
+//     })
+// }
+
+const PORT = process.env.PORT;
+app.listen(PORT, () => {
+  console.log("Server is running on port", PORT);
 });
