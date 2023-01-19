@@ -1,5 +1,6 @@
 const express = require("express");
 const { connection } = require("./config/db");
+const{userRouter}=require("./routes/user.route")
 const cors = require("cors");
 // const { userRouter } = require("./routes/User.route");
 // const { authenticate } = require("./middlewares/auhtenticate.mw");
@@ -12,6 +13,10 @@ app.use(cors());
 app.get("/", (req, res) => {
   res.send("Home Page");
 });
+
+app.use("/user",userRouter)
+
+
 
 
 
