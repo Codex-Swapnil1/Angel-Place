@@ -17,7 +17,7 @@ const BoysFashion = () => {
       <p>BOY FASHION</p>
     </PopoverTrigger>
 
-    <PopoverContent borderRadius="none"  height={"60vh"} width={"100vw"}>
+    <PopoverContent borderRadius="none"  height={"60vh"} width={"98vw"}>
     <Addcartscroll>
       <PopoverBody padding={"20px 50px"}>
 
