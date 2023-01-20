@@ -1,5 +1,6 @@
 const Products = require('../models/productModel')
 
+
 // Filter, sorting and paginating
 
 class APIfeatures {
@@ -46,22 +47,34 @@ class APIfeatures {
 }
 
 const productCtrl = {
-    getProducts: async(req, res) =>{
-        try {
-            const features = new APIfeatures(Products.find(), req.query)
-            .filtering().sorting().paginating()
+    // getProducts: async(req, res) =>{
+    //     try {
+    //         const features = new APIfeatures(girlstops.find(), req.query)
+    //         .filtering().sorting().paginating()
 
-            const products = await features.query
+    //         const products = await features.query
 
-            res.json({
-                status: 'success',
-                result: products.length,
-                products: products
-            })
+    //         res.json({
+    //             status: 'success',
+    //             result: products.length,
+    //             products: products
+    //         })
             
-        } catch (err) {
-            return res.status(500).json({msg: err.message})
-        }
+    //     } catch (err) {
+    //         return res.status(500).json({msg: err.message})
+    //     }
+    // },
+    getProducts: async (req, res) => {
+         try {
+           const products = await girlstops.find();
+        //    if (!user)
+        //      return res.status(400).json({ msg: "User does not exist." });
+
+           res.json(products);
+         } catch (err) {
+           return res.status(500).json({ msg: err.message });
+         }
+        
     },
     createProduct: async(req, res) =>{
         try {
