@@ -17,12 +17,12 @@ app.use(
 );
 // Routes
 app.get("/", (req, res) => {
-  res.send({ msg: "Welcome to First Cry Clone" });
+  res.send({ msg: "Welcome to First Cry Clone" })
 });
 app.use("/user", require("./routes/userRouter"));
 app.use("/api", require("./routes/categoryRouter"));
 app.use("/api", require("./routes/upload"));
-app.use("/api", require("./routes/productRouter"));
+app.use("/api", require("./routes/productRouter"))
 // app.use('/api', require('./routes/paymentRouter'))
 
 // Connect to mongodb

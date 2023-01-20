@@ -65,15 +65,15 @@ const productCtrl = {
     },
     createProduct: async(req, res) =>{
         try {
-            const {product_id, title, price, description, content, images, category} = req.body;
+            const payload= req.body;
             if(!images) return res.status(400).json({msg: "No image upload"})
 
-            const product = await Products.findOne({product_id})
+            const product = await Products.findOne({_id})
             if(product)
                 return res.status(400).json({msg: "This product already exists."})
 
             const newProduct = new Products({
-                product_id, title: title.toLowerCase(), price, description, content, images, category
+               payload
             })
 
             await newProduct.save()
