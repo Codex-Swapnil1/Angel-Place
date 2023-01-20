@@ -10,6 +10,7 @@ router
 
 router
   .route("/products/:id")
+  .get(productCtrl.getProducts)
   .delete(productCtrl.deleteProduct)
   .put(productCtrl.updateProduct);
 
