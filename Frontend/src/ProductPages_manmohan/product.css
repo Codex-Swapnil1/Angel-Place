@@ -72,12 +72,3 @@
    
    
 }
-.single-child:hover{
-   
-
-border: 3px solid orange;
-
-    margin: auto;
-    border-radius: 1%;
-    cursor: pointer;
-}

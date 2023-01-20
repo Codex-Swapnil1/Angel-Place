@@ -9,14 +9,13 @@ import {
   Grid,
 } from "@chakra-ui/react";
 import { useRef, useState } from "react";
+import styled from "styled-components";
 
 export default function SingleProductCard({ data, loading }) {
   let date = new Date();
   date.setDate(date.getDate() + 5);
-  const ref = useRef(null);
+
   const [st, setst] = useState(false);
-
-
 
   return (
     <>
@@ -40,34 +39,44 @@ export default function SingleProductCard({ data, loading }) {
                   />
                 </Box>
               ) : (
-                <Box ref={ref} key={elm._id} className="single-child">
-                  <Image src={elm.img} alt="img" />
-                  <VStack textAlign="center">
-                    <Text as={"i"} noOfLines={1}>
-                      {" "}
-                      {elm.title}
-                    </Text>
-                    <Box w="full">
-                      <Text fontSize={"xs"}>all size and color availble </Text>
-                      <Box
-                        w="50%"
-                        display={"flex"}
-                        m="auto"
-                        gap={"1"}
-                        alignItems="center"
-                      >
-                        <Text fontSize={"xs"} as="b">
-                          ₹{elm.price}
+                <Singleproductwrapper key={elm._id}>
+                  <Box className="single-child">
+                    <Image src={elm.img} alt="img" />
+                    <VStack textAlign="center" className="a">
+                      <Text as={"i"} noOfLines={1}>
+                        {" "}
+                        {elm.title}
+                      </Text>
+                      <Box w="full" className="ab">
+                        <Text fontSize={"xs"}>
+                          all size and color availble{" "}
                         </Text>
-                        |
-                        <Text as="del" fontSize={"xs"}>
-                          ₹{elm.mrp}
-                        </Text>
-                        <Text>{elm.discount}</Text>
+                        <Box
+                          w="50%"
+                          display={"flex"}
+                          m="auto"
+                          gap={"1"}
+                          alignItems="center"
+                        >
+                          <Text fontSize={"xs"} as="b">
+                            ₹{elm.price}
+                          </Text>
+                          |
+                          <Text as="del" fontSize={"xs"}>
+                            ₹{elm.mrp}
+                          </Text>
+                          <Text>{elm.discount}</Text>
+                        </Box>
                       </Box>
-                    </Box>
-                  </VStack>
-                </Box>
+                    </VStack>
+                  </Box>
+                  <Box
+                    w="100px"
+                    h="100px"
+                    bg="red.100"
+                    className="showdiv"
+                  ></Box>
+                </Singleproductwrapper>
               );
             })
           : ""}
@@ -75,3 +84,22 @@ export default function SingleProductCard({ data, loading }) {
     </>
   );
 }
+
+const Singleproductwrapper = styled.div`
+  .single-child {
+    :hover {
+     .a{
+      display:none
+     }
+     .showdiv{
+      dispalay:visible
+     }
+    }
+   
+  }
+  .showdiv{
+    
+  }
+
+  }
+`;

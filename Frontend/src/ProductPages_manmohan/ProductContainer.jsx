@@ -19,12 +19,14 @@ export default function ProductContainer({ data, loading }) {
   const [cn, setCn] = useState(0);
   const handelToggle = () => {
     setCn(!cn);
-    
   };
+  const selectChange=(e)=>{
+    //setlect tag vlaue
+  }
 
-  const selectChange = (e) => {
-    console.log(e.target.value);
-  };
+
+
+
 
   return (
     <Box w="100%">
@@ -77,15 +79,28 @@ export default function ProductContainer({ data, loading }) {
 
           <Tabs color={"white"}>
             <TabList onClick={handelToggle}>
-            <div>  <Tab>Subcatagory</Tab></div>
-             <div> <Tab>Discount</Tab></div>
-             <div> <Tab>Price</Tab></div>
-              <div><Tab>age</Tab></div>
-             <div> <Tab>gender</Tab></div>
-              <div><Tab>color</Tab></div>
+             
+                {" "}
+                <Tab>Subcatagory</Tab>
+             
+                {" "}
+                <Tab>Discount</Tab>
+              
+              
+                {" "}
+                <Tab>Price</Tab>
+              
+              
+                <Tab>age</Tab>
+             
+                {" "}
+                <Tab>gender</Tab>
+             
+                <Tab>color</Tab>
+            
             </TabList>
 
-            {  (
+            {cn?
               <TabPanels mb="20px">
                 <TabPanel>
                   <HStack spacing={3}>
@@ -135,8 +150,8 @@ export default function ProductContainer({ data, loading }) {
                     </Box>
                   </HStack>
                 </TabPanel>
-              </TabPanels>
-            ) }
+              </TabPanels>:null
+            }
           </Tabs>
         </Box>
       </Box>
