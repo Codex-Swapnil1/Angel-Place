@@ -1,14 +1,15 @@
 import React from 'react'
 import FooterPage from '../Components/FooterPage'
+import HomepageMid from '../Components/Homepage Components/HomepageMid'
+import Slider from '../Components/Homepage Components/Slider'
 import Navbar from '../Components/Navbar'
-import BoysFashion from '../Components/sub_nav_component/BoysFashion'
 
 const Homepage = () => {
   return (
     <div>
     <Navbar/>
-    Homepage
-    <BoysFashion/>
+    <Slider/>
+    <HomepageMid/>
     {/* <FooterPage/> */}
     </div>
   )
