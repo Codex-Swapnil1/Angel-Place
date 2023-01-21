@@ -8,7 +8,9 @@ import {
   VStack,
   Grid,
 } from "@chakra-ui/react";
+import { Button } from "antd";
 import { useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 export default function SingleProductCard({ data, loading }) {
@@ -16,6 +18,14 @@ export default function SingleProductCard({ data, loading }) {
   date.setDate(date.getDate() + 5);
 
   const [st, setst] = useState(false);
+
+const navigate=useNavigate()
+  const MoveTocart=(id)=>{
+     
+    navigate("/singleproduct/:id")
+
+  }
+
 
   return (
     <>
@@ -57,6 +67,7 @@ export default function SingleProductCard({ data, loading }) {
                           m="auto"
                           gap={"1"}
                           alignItems="center"
+                          className="price-tag"
                         >
                           <Text fontSize={"xs"} as="b">
                             ₹{elm.price}
@@ -69,13 +80,10 @@ export default function SingleProductCard({ data, loading }) {
                         </Box>
                       </Box>
                     </VStack>
+                    <Box className="showdiv">
+                      <Button  onClick={()=>MoveTocart(elm._id)} >Add to cart</Button>
+                    </Box>
                   </Box>
-                  <Box
-                    w="100px"
-                    h="100px"
-                    bg="red.100"
-                    className="showdiv"
-                  ></Box>
                 </Singleproductwrapper>
               );
             })
@@ -88,17 +96,18 @@ export default function SingleProductCard({ data, loading }) {
 const Singleproductwrapper = styled.div`
   .single-child {
     :hover {
-     .a{
+    .showdiv{
+      display:block
+    }
+    .price-tag{
       display:none
-     }
-     .showdiv{
-      dispalay:visible
-     }
+    }
+     
     }
    
   }
   .showdiv{
-    
+    display:none
   }
 
   }

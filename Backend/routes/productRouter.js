@@ -13,4 +13,9 @@ router
   .delete(productCtrl.deleteProduct)
   .put(productCtrl.updateProduct);
 
+
+
+
+
+
 module.exports = router;

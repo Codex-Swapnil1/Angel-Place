@@ -37,8 +37,8 @@
 
 
 .singlePr{
-   
-    justify-content: center;
+
+     justify-content: center;
     place-items: center;
    display: grid;
    grid-template-columns: repeat(5,1fr);
@@ -46,8 +46,7 @@
    
     width: 90%;
     grid-gap: 30px;
-  background-color: #333333;
- 
+  background-color: #333333; 
 
     
     
@@ -68,6 +67,7 @@
     gap: 5px;
     background-color: aliceblue;
     
+    border:1px solid red;
    
    
    
