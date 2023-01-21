@@ -10,6 +10,7 @@ export default function ProductPage() {
   const { data, loading } = useSelector((store) => {
     return { data: store.Appreducer.data, loading: store.Appreducer.isLoading };
   });
+  console.log(loading);
 
   useEffect(() => {
     dispatch(getprData());
