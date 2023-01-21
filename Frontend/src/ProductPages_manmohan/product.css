@@ -1,0 +1,83 @@
+
+.select-tag>Select
+{
+   background-color: black;
+}
+.filter-by{
+    width: 100%;
+    border: 1px solid #2C2D2C;
+    padding: 2px;
+    margin-left: 10px;
+    color:gray;
+    padding-bottom: 10px;
+    border-bottom: 5px solid orange ;
+   
+}
+.filter-by:hover{
+    cursor: pointer;
+    color: rgb(244, 247, 250);
+   
+}
+.show-div{
+    border: 1px solid #2C2D2C;
+    padding: 2px;
+    margin-left: 10px;
+    color:gray;
+   
+}
+.show-div:hover{
+    cursor: pointer;
+    color: rgb(244, 247, 250);
+}
+.hide-div{
+    display: none   ;
+}
+
+/* //singlecard */
+
+
+.singlePr{
+   
+    justify-content: center;
+    place-items: center;
+   display: grid;
+   grid-template-columns: repeat(5,1fr);
+    margin: auto;
+   
+    width: 90%;
+    grid-gap: 30px;
+  background-color: #333333;
+ 
+
+    
+    
+}
+
+/* //singlechild */
+
+.single-child{
+   
+    width: 90%;
+    
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    gap: 5px;
+    background-color: aliceblue;
+    
+   
+   
+   
+}
+.single-child:hover{
+   
+
+border: 3px solid orange;
+
+    margin: auto;
+    border-radius: 1%;
+    cursor: pointer;
+}

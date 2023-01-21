@@ -1,9 +1,16 @@
 import { Routes, Route } from "react-router-dom";
+import { Routes ,Route} from "react-router-dom";
+import MainLayout from "../Components/MainLayout";
+import AdminDashboard from "../Pages/AdminDashboard";
+import ForgotPassword from "../Pages/ForgotPassword";
+import Homepage from "../Pages/Homepage";
+import ResetPassword from "../Pages/ResetPassword";
 import ProductPage from "../ProductPages_manmohan/ProductPage";
 import Login from "../Components/Login.jsx";
 import Register from "../Components/Register.jsx";
 
 export default function AllRoutes() {
+
 
 
     return <Routes>
@@ -17,4 +24,5 @@ export default function AllRoutes() {
 
 
     </Routes>
+
 }
