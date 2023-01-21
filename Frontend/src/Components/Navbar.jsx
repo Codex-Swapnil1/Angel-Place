@@ -5,16 +5,19 @@ import { ChevronDownIcon, Search2Icon } from "@chakra-ui/icons";
 import logo from "../Resources/1.png"
 import {CiHeart, CiLocationOn}from "react-icons/ci";
 import {BsCart} from "react-icons/bs"
-import { category } from '../Resources/navbar';
+// import { category } from '../Resources/navbar';
+
 import BoysFashion from './sub_nav_component/BoysFashion';
 import GirlsFashion from './sub_nav_component/GirlsFashion';
-import { Link } from 'react-router-dom';
+import PreschoolComponent from './sub_nav_component/PreschoolComponent';
+import DeskstopNavList from './sub_nav_component/DeskstopNavList';
+import TabletNavbar from './sub_nav_component/TabletNavbar';
 const Navbar = () => {
   return (
     <NavbarWrapper>
     <Box className='nav-top'>
       <Box className='nav-top-left'>
-        <Image className='logoimg' src="https://cdn.fcglcdn.com/brainbees/images/n/fc_logo.png" alt="logo"/>
+        <Image className='logoimg' src={logo} alt="logo"/>
         <Box sx={{marginRight:"5px"}}>
         <InputGroup>
                           <Input
@@ -40,49 +43,16 @@ const Navbar = () => {
       <Box className='nav-top-right'>
       <Box sx={{display:"flex"}}>
       <Box sx={{paddingTop:"5px"}}>
-      <ul className='desktop-nav-top-right'>
-         <li className='location-nav'> <CiLocationOn fontSize={"18px"}/> Select location</li>
-         <li>
-                <Popover trigger="hover"
-                  isLazy
-                  openDelay={300}>
-                <PopoverTrigger>
-                <p>Stores & Preschools</p>
-                </PopoverTrigger>
-                <PopoverContent borderRadius="none" width={"auto"}>
-                <PopoverBody >
-                <ul className='nav-store-list'>
-                  <li>Find Store</li>
-                  <li>Find PreSchool</li>
-                  <li>Open a Store</li>
-                  <li>Open a PreSchool</li>
-                </ul>
-
-                </PopoverBody>
-                </PopoverContent>
-                </Popover>
-
-         </li>
-         <li>Support</li>
-         <li>Track Order</li>
-         <li>FirstCry Parenting</li>
-         <li className='nav-login' style={{textDecoration:"none"}}><Link to="/login">Login/Register</Link></li>
-         <li className='location-nav' ><CiHeart fontSize={"20px"}/>Shortlist</li>
-      </ul>
+      <Box className='desktop-nav-list'>
+      <DeskstopNavList/>
       </Box>
-      <Box className='location-nav' style={{borderRight:"none",fontWeight:"400",fontSize:"18px"}}>
-         <p style={{fontWeight:"lighter",fontSize:"13px", position: "relative",
-                      left: "31px",
-                      top:"7px",
-                      cursor: "pointer",
-                      opacity: "1",
-                      zIndex: "101px",
-                      padding: "0px",
-                      margin: "0px",
-                      color:"#ff7043",
-                      fontWeight:"bold"
-                      }}>0</p>
-         <BsCart fontWeight={"light"} fontSize={"38px"}/>Cart
+      <Box className='tablet-nav-list'>
+        <TabletNavbar/>
+      </Box>
+      </Box>
+      <Box className='location-nav'>
+         <p className='count-position'>0</p>
+         <BsCart className="cart-css" />
         </Box>
       </Box>
 
@@ -127,6 +97,7 @@ gap:5px;
 .nav-top-left{
   display : flex;
   gap : 5px;
+  max-height: 50px;
 }
 .logoimg{
   width: 113px;
@@ -151,6 +122,23 @@ gap:5px;
   .location-nav{
     display: flex;
     gap : 5px;
+    border-right:none;
+    font-weight:400;
+  }
+
+  .count-position{
+    font-weight:lighter;
+    font-size:13px;
+    position: relative;
+    left: 31px;
+    top:7px;
+    cursor: pointer;
+    opacity: 1;
+    z-index: 101px;
+    padding: 0px;
+    margin: 0px;
+    color:#ff7043;
+    font-weight:bold;
   }
 
   .nav-store-list{
@@ -169,6 +157,7 @@ gap:5px;
 .category-list{
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 }
@@ -195,4 +184,145 @@ gap:5px;
   align-items: center;
   justify-content: center;
 }
+
+// cart logo
+.cart-css{
+  font-weight:light;
+  font-size:38px;
+}
+
+@media only screen and (min-width: 1200px){
+.desktop-nav-list{
+  display: block;
+}
+.tablet-nav-list{
+  display: none;
+}
+}
+
+@media only screen and (min-width: 770px) and (max-width: 1200px){
+.desktop-nav-list{
+  display: none;
+}
+.tablet-nav-list{
+  display: block;
+}
+
+.cart-css{
+  font-weight:light;
+  font-size:30px;
+}
+.count-position{
+    font-weight:lighter;
+    font-size:13px;
+    position: relative;
+    left: 26px;
+    top:4px;
+    cursor: pointer;
+    opacity: 1;
+    z-index: 101px;
+    padding: 0px;
+    margin: 0px;
+    color:#ff7043;
+    font-weight:bold;
+  }
+  .nav-bottom{
+    background-color:#ffd91c;
+  padding:0px 4%;
+  display: flex;
+  margin: auto;
+  text-align: center;
+  font-size: 11px;
+  gap: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+  .category-list{
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.category-list div{
+  cursor: pointer;
+  font-size: 11px;
+    border-right: none;
+    :hover{
+      text-decoration: none;
+      background-color: white;
+    };
+    font-weight: 400;
+    padding: 5px 6px;
+}
+}
+@media only screen and (min-width: 320px) and (max-width: 770px){
+.desktop-nav-list{
+  display: none;
+}
+.tablet-nav-list{
+  display: block;
+}
+.cart-css{
+  font-weight:light;
+  font-size:38px;
+}
+.cart-css{
+  font-weight:light;
+  font-size:30px;
+}
+.count-position{
+    font-weight:lighter;
+    font-size:13px;
+    position: relative;
+    left: 26px;
+    top:4px;
+    cursor: pointer;
+    opacity: 1;
+    z-index: 101px;
+    padding: 0px;
+    margin: 0px;
+    color:#ff7043;
+    font-weight:bold;
+  }
+  .location-nav{
+  display: flex;
+    gap : 5px;
+    border-right:none;
+    font-weight:400;
+    font-size:16px;
+}
+.nav-bottom{
+    background-color:#ffd91c;
+  padding:0px 4%;
+  display: flex;
+  margin: auto;
+  text-align: center;
+  font-size: 11px;
+  gap: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+.category-list{
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.category-list div{
+  cursor: pointer;
+  font-size: 11px;
+    border-right: none;
+    :hover{
+      text-decoration: none;
+      background-color: white;
+    };
+    font-weight: 400;
+    padding: 5px 6px;
+}
+}
+
 `
