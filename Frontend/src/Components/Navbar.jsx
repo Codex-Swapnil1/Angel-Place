@@ -8,6 +8,7 @@ import {BsCart} from "react-icons/bs"
 import { category } from '../Resources/navbar';
 import BoysFashion from './sub_nav_component/BoysFashion';
 import GirlsFashion from './sub_nav_component/GirlsFashion';
+import { Link } from 'react-router-dom';
 const Navbar = () => {
   return (
     <NavbarWrapper>
@@ -65,7 +66,7 @@ const Navbar = () => {
          <li>Support</li>
          <li>Track Order</li>
          <li>FirstCry Parenting</li>
-         <li className='nav-login' style={{textDecoration:"none"}}>Login / Register</li>
+         <li className='nav-login' style={{textDecoration:"none"}}><Link to="/login">Login/Register</Link></li>
          <li className='location-nav' ><CiHeart fontSize={"20px"}/>Shortlist</li>
       </ul>
       </Box>

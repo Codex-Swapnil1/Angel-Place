@@ -39,6 +39,7 @@ class APIfeatures {
     return this;
   }
 
+<<<<<<< HEAD
   paginating() {
     const page = this.queryString.page * 1 || 1;
     const limit = this.queryString.limit * 1 || 9;
@@ -75,6 +76,91 @@ const productCtrl = {
       res.send(products);
     } catch (err) {
       return res.status(500).json({ msg: err.message });
+=======
+  // paginating(){
+  //     const page = this.queryString.page * 1 || 1
+  //     const limit = this.queryString.limit * 1 || 9
+  //     const skip = (page - 1) * limit;
+  //     this.query = this.query.skip(skip).limit(limit)
+  //     return this;
+  // }
+}
+
+const productCtrl = {
+    getProducts: async (req, res) => {
+        const id = req.params.id
+        // console.log(id)
+        try {
+// console.log("in get",req.query)
+            const features = new APIfeatures(Products.find(id?{_id:id}:null), req.query).filtering()
+            .sorting()
+
+            const products = await features.query
+
+            res.json({
+                status: 'success',
+                result: products.length,
+                products: products
+            })
+            
+        } catch (err) {
+            return res.status(500).json({msg: err.message})
+        }
+    },
+    // getProducts: async (req, res) => {
+    //      try {
+    //        const products = await girlstops.find();
+    //     //    if (!user)
+    //     //      return res.status(400).json({ msg: "User does not exist." });
+
+    //        res.json(products);
+    //      } catch (err) {
+    //        return res.status(500).json({ msg: err.message });
+    //      }
+        
+    // },
+    createProduct: async(req, res) =>{
+        try {
+            const { title, price, description, img, category } = req.body;
+            if(!img) return res.status(400).json({msg: "No image upload"})
+
+            const product = await Products.findOne({_id})
+            if(product)
+                return res.status(400).json({msg: "This product already exists."})
+
+            const newProduct = new Products({
+               payload
+            })
+
+            await newProduct.save()
+            res.json({msg: "Created a product"})
+
+        } catch (err) {
+            return res.status(500).json({msg: err.message})
+        }
+    },
+    deleteProduct: async(req, res) =>{
+        try {
+            await Products.findByIdAndDelete(req.params.id)
+            res.json({msg: "Deleted a Product"})
+        } catch (err) {
+            return res.status(500).json({msg: err.message})
+        }
+    },
+    updateProduct: async(req, res) =>{
+        try {
+            const {title, price, description, img, category} = req.body;
+            if(!img) return res.status(400).json({msg: "No image upload"})
+
+            await Products.findOneAndUpdate({_id: req.params.id}, {
+                title: title.toLowerCase(), price, description, content, img, category
+            })
+
+            res.json({msg: "Updated a Product"})
+        } catch (err) {
+            return res.status(500).json({msg: err.message})
+        }
+>>>>>>> ed379fb2c85a435cf9db24cbad6dfebb9573a663
     }
   },
   createProduct: async (req, res) => {

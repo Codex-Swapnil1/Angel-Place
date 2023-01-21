@@ -1,5 +1,4 @@
 import React from "react";
-import "../CSS/Login.css";
 import { Link } from "react-router-dom";
 // import CustomeInput from '../Components/CustomeInput'
 import {
