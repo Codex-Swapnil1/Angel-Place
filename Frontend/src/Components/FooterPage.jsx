@@ -211,17 +211,17 @@ const FooterPage = () => {
 
                      <div className={style_f.toptext}>
                        {/* first  */}
-                       <p>FirstCry Baby & Kids Products Online Store
+                       {/* <p>FirstCry Baby & Kids Products Online Store
                         <br />
 
                         Explore kids and baby products galore at FirstCry.com, the Big Store for Little Ones. We at FirstCry.com empathize with you as a mother who always aspires to bestow her newborn, infant, baby or kid with the best things even for their smallest needs. That is why, 'Mommy Knows Best'.
 
                         <br />
                         From breastfeeding to bathing essentials, right furniture to myriad baby care products, a mother needs them all for her lil' one. This inspires us to offer convenient & hassle-free online shopping not just for babies & kids but for moms-to-be & new moms as well.
-                       </p>
+                       </p> */}
 
                        {/* second */}
-                       <p>
+                       {/* <p>
                        With 2 Lakh Baby & Kids Products, 2 Million Happy Customers, and 2 Thousand+ top-notch national and international brands like Babyhug, Chicco, Graco, BSA, Johnson & Johnson, Huggies, Pampers, Medela, Pigeon, Mothercare, Fisher-Price, FunSkool, Lego, Disney, Barbie and
                        <br />
 
@@ -232,11 +232,11 @@ const FooterPage = () => {
 
                        <p>
                        With the FirstCry mobile app, now you can shop on the go! Download the FirstCry Android and the iOS app and Voila!
-                       </p>
+                       </p> */}
 
                      </div>
 
-                     <div className={style_f.botomtext}>
+                     {/* <div className={style_f.botomtext}>
 
                         <p>
                         Newborn & Baby Products Online Shopping in India
@@ -266,7 +266,7 @@ const FooterPage = () => {
                         </p>
 
 
-                     </div>
+                     </div> */}
 
 
                </div>

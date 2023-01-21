@@ -1,6 +1,7 @@
 import { Routes ,Route} from "react-router-dom";
 import MainLayout from "../Components/MainLayout";
 import AdminDashboard from "../Pages/AdminDashboard";
+import CartPage from "../Pages/CartPage";
 import ForgotPassword from "../Pages/ForgotPassword";
 import Homepage from "../Pages/Homepage";
 import Login from "../Pages/Login";
@@ -19,7 +20,7 @@ export default function AllRoutes(){
           path="/product/:id"
           element={<h2>single product page</h2>}
         ></Route>
-        <Route path="/cart" element={<h1>cart page</h1>}></Route>
+        <Route path="/cart" element={<CartPage/>}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<h3>Signup page</h3>}></Route>
         <Route path="/forgot-password" element={<ForgotPassword />}></Route>
