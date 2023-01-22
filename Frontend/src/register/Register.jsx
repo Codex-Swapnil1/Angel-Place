@@ -13,6 +13,7 @@ import {
   Text,
   useColorModeValue,
   Link,
+  Image,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
@@ -21,6 +22,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { Register } from "../Redux/Auth/action";
 import { useNavigate } from "react-router-dom";
+import logo from "../Resources/1.png"
 
 export default function SignupCard() {
   const [showPassword, setShowPassword] = useState(false);
@@ -73,12 +75,7 @@ export default function SignupCard() {
     >
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
         <Stack align={"center"}>
-          <Heading fontSize={"4xl"} textAlign={"center"}>
-            Sign up
-          </Heading>
-          <Text fontSize={"lg"} color={"gray.600"}>
-            to enjoy all of our cool features ✌️
-          </Text>
+        <Image borderRadius={"10px"} src={logo} alt="logo"/>
         </Stack>
         <Box
           rounded={"lg"}
@@ -141,13 +138,13 @@ export default function SignupCard() {
                 loadingText="Submitting"
                 size="lg"
                 onClick={handelRegister}
-                bg={"blue.400"}
+                bg={"yellow.600"}
                 color={"white"}
                 _hover={{
-                  bg: "blue.500",
+                  bg: "yellow.800",
                 }}
               >
-                Sign up
+                Register
               </Button>
             </Stack>
             <Stack pt={6}>
