@@ -11,17 +11,20 @@ import {
   Heading,
   Text,
   useColorModeValue,
+  Image,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import { FaUnderline } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 import { Login_handeler } from "../Redux/Auth/action";
+import logo from "../Resources/1.png"
 
 export default function LoginCard() {
-  
+
     const dispatch=useDispatch()
-  
-  
+
+
     const [userip, setuserIp] = useState({
     email: "",
     password: "",
@@ -32,11 +35,11 @@ export default function LoginCard() {
 
     setuserIp({ ...userip, [name]: value });
   };
-  
+
   const {loading,token}=useSelector((store)=>{
     return {loading:store.Authreducer.isLoading, token:store.Authreducer.token }
   })
-  
+
 
 const navigate=useNavigate()
   if(token=="token cant genrated"){
@@ -47,12 +50,12 @@ const navigate=useNavigate()
  navigate('/')
   }
 
-  
+
 
 
   const handelLogin = () => {
     dispatch(Login_handeler(userip))
-    
+
   };
 
   return (
@@ -64,10 +67,8 @@ const navigate=useNavigate()
     >
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
         <Stack align={"center"}>
+        <Image borderRadius={"10px"} src={logo} alt="logo"/>
           <Heading fontSize={"4xl"}>Sign in to your account</Heading>
-          <Text fontSize={"lg"} color={"gray.600"}>
-            to enjoy all of our cool <Link color={"blue.400"}>features</Link> ✌️
-          </Text>
         </Stack>
         <Box
           rounded={"lg"}
@@ -104,17 +105,21 @@ const navigate=useNavigate()
                 <Link color={"blue.400"}>Forgot password?</Link>
               </Stack>
               <Button
-                bg={"blue.400"}
+                bg={"yellow.600"}
                 color={"white"}
-                onClick={handelLogin}
                 _hover={{
-                  bg: "blue.500",
+                  bg: "yellow.800",
                 }}
               >
                 Log in
               </Button>
             </Stack>
           </Stack>
+          <Box sx={{margin:"10px 5px",_hover:{
+            textDecoration: "underline"
+          }}}
+          onClick={()=>navigate("/register")}
+          >Register</Box>
         </Box>
       </Stack>
     </Flex>

@@ -11,7 +11,7 @@ const Homepage = () => {
     <Navbar/>
     <Slider/>
     <HomepageMid/>
-    <FooterPage/>
+    {/* <FooterPage/> */}
     <ScrollButton/>
     </div>
   )
