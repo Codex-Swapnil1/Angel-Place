@@ -20,8 +20,7 @@ export default function AllRoutes() {
       <Route path="/cart" element={<h1>cart page</h1>}></Route>
       <Route path="/login" element={<LoginCard />}></Route>
       <Route path="/register" element={<SignupCard />}></Route>
-      <Route path="/forgot-password" element={<ForgotPassword />}></Route>
-      {/* <Route path="/reset-password" element={<ResetPassword />}></Route> */}
+
       {/* <Route path="/cart"  element={<Cart/>} ></Route> */}
       <Route path="/admin" element={<MainLayout />}>
         <Route index element={<AdminDashboard />} />
@@ -29,3 +28,4 @@ export default function AllRoutes() {
     </Routes>
   );
 }
+

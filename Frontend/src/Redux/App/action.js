@@ -17,9 +17,9 @@ function getprData(payload) {
   return (dispatch) => {
     dispatch(getdatareq_fn());
 
-   
+
     return axios
-      .get("http://localhost:8080/api/products", payload)
+      .get(`http://localhost:8080/api/products`, payload)
       .then((res) => {
         dispatch(getdatasucc_fn(res.data.products));
       })

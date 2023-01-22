@@ -4,6 +4,7 @@ import { Popover, PopoverBody, PopoverContent, PopoverTrigger } from '@chakra-ui
 import React from 'react'
 import { shopbycatboy,shopbycalboy, fashion, footware, shopbyage, shopbyprice, shopbybrands } from '../../Resources/navbar'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 const BoysFashion = () => {
   return (
@@ -14,7 +15,7 @@ const BoysFashion = () => {
     placement="bottom"
     >
     <PopoverTrigger>
-      <p>BOY FASHION</p>
+      <Link to="/products" state={{ query: 'boystshirt' }}><p>BOY FASHION</p></Link>
     </PopoverTrigger>
 
     <PopoverContent borderRadius="none"  height={"60vh"} width={"98vw"}>

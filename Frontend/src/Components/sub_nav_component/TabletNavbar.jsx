@@ -1,6 +1,7 @@
 import { Box } from '@chakra-ui/react'
 import React from 'react'
 import { CiLocationOn } from 'react-icons/ci'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import MoreComponent from './MoreComponent'
 
@@ -11,7 +12,7 @@ const TabletNavbar = () => {
             <li className='location-navv'> <CiLocationOn fontSize={"16px"}/> Select location</li>
             <li>FirstCry Parenting</li>
             <li><MoreComponent/></li>
-            <li className='nav-login' style={{textDecoration:"none"}}>Login / Register</li>
+           <Link to="/login"> <li className='nav-login' style={{textDecoration:"none"}}>Login / Register</li></Link>
         </ul>
     </NavWrapper>
   )
