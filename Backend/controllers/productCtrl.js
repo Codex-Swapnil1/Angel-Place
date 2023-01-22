@@ -49,12 +49,11 @@ class APIfeatures {
 }
 
 const productCtrl = {
-  getProducts: async (req, res) => {
-    try {
-      const features = new APIfeatures(Products.find(), req.query)
-        .filtering()
-        .sorting()
-        .paginating();
+    getProducts: async (req, res) => {
+        const params = req.params.id;
+        try {
+            const features = new APIfeatures(Products.find(params?{ _id:params }:null), req.query)
+            .filtering().sorting().paginating()
 
       const products = await features.query;
 
