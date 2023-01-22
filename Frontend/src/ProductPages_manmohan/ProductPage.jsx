@@ -3,7 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getprData } from "../Redux/App/action";
 import ProductContainer from "./ProductContainer";
 import { Center, Select } from "@chakra-ui/react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useSearchParams } from "react-router-dom";
+import Navbar from "../Components/Navbar";
+import { useState } from "react";
 
 export default function ProductPage() {
   const dispatch = useDispatch();
@@ -14,7 +16,8 @@ export default function ProductPage() {
   const { data, loading } = useSelector((store) => {
     return { data: store.Appreducer.data, loading: store.Appreducer.isLoading };
   });
-  console.log(data);
+
+
 
   useEffect(() => {
     dispatch(getprData());
@@ -22,6 +25,7 @@ export default function ProductPage() {
 
   return (
     <>
+      <Navbar />
       <Center bg={"blackAlpha.800"}>
         <ProductContainer data={data} loading={loading} />
       </Center>

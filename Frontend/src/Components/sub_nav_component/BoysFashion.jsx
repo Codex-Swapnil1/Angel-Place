@@ -15,7 +15,7 @@ const BoysFashion = () => {
     placement="bottom"
     >
     <PopoverTrigger>
-      <Link to="/products" state={{ query: 'boystshirt' }}><p>BOY FASHION</p></Link>
+      <Link to="/products" state={{ query: '?catagory=boystshirt' }}><p>BOY FASHION</p></Link>
     </PopoverTrigger>
 
     <PopoverContent borderRadius="none"  height={"60vh"} width={"98vw"}>
