@@ -26,9 +26,9 @@ app.use("/api", require("./routes/productRouter"))
 // app.use('/api', require('./routes/paymentRouter'))
 
 // Connect to mongodb
-const URI = process.env.MONGODB_URL;
+const URL = process.env.url;
 mongoose.connect(
-  URI,
+  URL,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,

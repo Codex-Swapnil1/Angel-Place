@@ -15,7 +15,7 @@ function Register() {
     const registerSubmit = async e =>{
         e.preventDefault()
         try {
-            await axios.post('/user/register', {...user})
+            await axios.post('http://localhost:8080/user/register', {...user})
 
             localStorage.setItem('firstLogin', true)
 
@@ -28,8 +28,11 @@ function Register() {
 
     return (
         <div className={styles.login_page}>
+            <Link to="/">
+            <img className={styles.img}  src="https://cdn.fcglcdn.com/brainbees/images/n/fc-logo-s.jpg" alt="" />
+            </Link>
             <form onSubmit={registerSubmit}>
-                <h2>Register</h2>
+                <h1>Register</h1>
                 <input type="text" name="name" required
                 placeholder="Name" value={user.name} onChange={onChangeInput} />
 
@@ -44,6 +47,7 @@ function Register() {
                     <Link to="/login">Login</Link>
                 </div>
             </form>
+            
         </div>
     )
 }

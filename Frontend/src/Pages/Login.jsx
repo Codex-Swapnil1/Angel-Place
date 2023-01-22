@@ -15,8 +15,8 @@ function Login() {
     const loginSubmit = async e =>{
         e.preventDefault()
         try {
-            await axios.post('/user/login', {...user})
-
+            await axios.post('http://localhost:8080/user/login', {...user})
+            console.log(user)
             localStorage.setItem('firstLogin', true)
             
             window.location.href = "/";
@@ -27,8 +27,11 @@ function Login() {
 
     return (
         <div className={styles.login_page}>
+            <Link to="/">
+            <img className={styles.img} src="https://cdn.fcglcdn.com/brainbees/images/n/fc-logo-s.jpg" alt="" />
+            </Link>
             <form onSubmit={loginSubmit}>
-                <h2>Login</h2>
+                <h1>Login</h1>
                 <input type="email" name="email" required
                 placeholder="Email" value={user.email} onChange={onChangeInput} />
 
@@ -40,6 +43,9 @@ function Login() {
                     <Link to="/register">Register</Link>
                 </div>
             </form>
+            <div>
+
+            </div>
         </div>
     )
 }

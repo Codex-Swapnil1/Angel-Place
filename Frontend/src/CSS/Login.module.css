@@ -5,7 +5,8 @@
     padding: 30px;
     margin: 50px auto;
 }
-.login_page h2{
+
+.login_page h1{
     text-transform: uppercase;
     letter-spacing: 2px;
     color: #555;
@@ -32,7 +33,10 @@
     letter-spacing: 2px;
 }
 .login_page form a{
-    color: orange;
+    color: red;
     letter-spacing: 1.3px;
     text-transform: uppercase;
+}
+.img{
+    margin-left: 150px;
 }
