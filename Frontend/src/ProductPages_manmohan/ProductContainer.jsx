@@ -26,26 +26,25 @@ export default function ProductContainer({ data, loading }) {
   const [sort, setSort] = useState("");
 
   const handelFilterChange = (e) => {
-    let newCategory = [...catagory];
-    if (newCategory.includes(e.target.vlaue)) {
-      newCategory.splice(newCategory.indexOf(e.target.value),1);
+    let arr = [...catagory];
+    if (arr.includes(e.target.value)) {
+      arr.splice(arr.indexOf(e.target.value), 1);
     } else {
-      newCategory.push(e.target.value);
+      arr.push(e.target.value);
     }
-    setCatagory(newCategory);
+    setCatagory(arr);
   };
-  console.log(catagory)
 
   useEffect(() => {
     const param = {};
-    param.category = catagory;
+    param.catagory = catagory;
     param.sort = sort;
     setSearchParams(param);
   }, [catagory, sort]);
 
   const selectChange = (e) => {
     //setlect tag vlaue
-    setSort(e.target.value)
+    setSort(e.target.value);
   };
 
   return (
@@ -58,7 +57,6 @@ export default function ProductContainer({ data, loading }) {
         </Box>
         <Box
           display={"flex"}
-          border="1px solid red"
           w="30%"
           justifyContent={"space-around"}
           alignItems="center"
@@ -67,15 +65,12 @@ export default function ProductContainer({ data, loading }) {
           <Box w="30%" className="select-tag">
             <Select
               size={"xm"}
-              bg={"blackAlpha.500"}
-              color="white"
+              color="orange"
               placeholder="Select"
               onChange={selectChange}
             >
-              <option value={"new_arival"}>New Arival</option>
               <option value={"-price"}>Price H to L</option>
               <option value={"price"}>Price L To H</option>
-              <option value={"Price"}></option>
             </Select>
           </Box>
           <Box className="box">

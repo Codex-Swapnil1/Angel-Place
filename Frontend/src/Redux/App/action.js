@@ -13,12 +13,13 @@ const getdataerror_fn = () => {
   return { type: types.GETDATAERROR_err };
 };
 
-function getprData(payload="products") {
+function getprData(payload) {
+  console.log(payload)
   return (dispatch) => {
     dispatch(getdatareq_fn());
 
     return axios
-      .get(`http://localhost:8080/api/${payload}`, payload)
+      .get(`http://localhost:8080/api/products`, payload)
       .then((res) => {
         dispatch(getdatasucc_fn(res.data.products));
       })

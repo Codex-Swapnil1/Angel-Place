@@ -16,12 +16,22 @@ export default function ProductPage() {
   const { data, loading } = useSelector((store) => {
     return { data: store.Appreducer.data, loading: store.Appreducer.isLoading };
   });
-
-
+  const [searchParams] = useSearchParams();
+  const location = useLocation();
 
   useEffect(() => {
-    dispatch(getprData());
-  }, [dispatch]);
+    if (data.length == 0 || location) {
+      const [sortby] = searchParams.getAll("sort");
+
+      const bcparams = {
+        params: {
+          catagory: searchParams.getAll("catagory"),
+          sort: sortby&&sortby,
+        },
+      };
+      dispatch(getprData(bcparams));
+    }
+  }, [dispatch, location]);
 
   return (
     <>
