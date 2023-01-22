@@ -18,7 +18,7 @@ export default function ProductPage() {
 
   useEffect(() => {
     dispatch(getprData());
-  }, [dispatch]);
+  }, []);
 
   return (
     <>
