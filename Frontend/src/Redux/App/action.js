@@ -21,7 +21,7 @@ function getprData(payload) {
     return axios
       .get(`http://localhost:8080/api/products`, payload)
       .then((res) => {
-        dispatch(getdatasucc_fn(res.data));
+        dispatch(getdatasucc_fn(res.data.products));
       })
       .catch((error) => {
         dispatch(getdataerror_fn());

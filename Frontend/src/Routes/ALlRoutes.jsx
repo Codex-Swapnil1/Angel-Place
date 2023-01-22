@@ -6,7 +6,7 @@ import CartPage from "../Pages/CartPage";
 import ForgotPassword from "../Pages/ForgotPassword";
 import Homepage from "../Pages/Homepage";
 
-// import ResetPassword from "../Pages/ResetPassword";
+
 import ProductPage from "../ProductPages_manmohan/ProductPage";
 import LoginCard from "../register/Login";
 import SignupCard from "../register/Register";
@@ -20,6 +20,7 @@ export default function AllRoutes() {
       <Route path="/cart" element={<h1>cart page</h1>}></Route>
       <Route path="/login" element={<LoginCard />}></Route>
       <Route path="/register" element={<SignupCard />}></Route>
+
       {/* <Route path="/cart"  element={<Cart/>} ></Route> */}
       <Route path="/admin" element={<MainLayout />}>
         <Route index element={<AdminDashboard />} />
