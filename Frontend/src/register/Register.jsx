@@ -12,34 +12,37 @@ import {
   Heading,
   Text,
   useColorModeValue,
-  Link,
+ 
   Image,
+  CircularProgress,
+  CircularProgressLabel,
 } from "@chakra-ui/react";
+
 import { useEffect, useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
-import axios from "axios";
+import {Link} from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux";
 
 import { Register } from "../Redux/Auth/action";
 import { useNavigate } from "react-router-dom";
-import logo from "../Resources/1.png"
+import logo from "../Resources/1.png";
 
 export default function SignupCard() {
   const [showPassword, setShowPassword] = useState(false);
 
   const dispatch = useDispatch();
-//useState
+  //useState
   const [userip, setuserIp] = useState({
     name: "",
     email: "",
     password: "",
   });
-//handel Change
+  //handel Change
   const handelChange = (e) => {
     const { name, value } = e.target;
     setuserIp({ ...userip, [name]: value });
   };
-//redux state
+  //redux state
   const { loading, succ, err } = useSelector((store) => {
     return {
       loading: store.Authreducer.isLoading,
@@ -48,17 +51,15 @@ export default function SignupCard() {
     };
   });
   const navigate = useNavigate();
- //useEffect
+  //useEffect
   useEffect(() => {
     if (succ) {
       navigate("/login");
     }
-    if (err) {
-      alert(err);
-    }
+    
   }, [succ, err]);
 
-  console.log(succ,"print succ")
+  console.log(succ, "print succ");
 
   const handelRegister = () => {
     const payload = userip;
@@ -75,7 +76,7 @@ export default function SignupCard() {
     >
       <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
         <Stack align={"center"}>
-        <Image borderRadius={"10px"} src={logo} alt="logo"/>
+          <Image borderRadius={"10px"} src={logo} alt="logo" />
         </Stack>
         <Box
           rounded={"lg"}
@@ -144,12 +145,19 @@ export default function SignupCard() {
                   bg: "yellow.800",
                 }}
               >
-                Register
+                {loading ? (
+                  <CircularProgress isIndeterminate color="green.300" />
+                ) : (
+                  "Register"
+                )}
               </Button>
             </Stack>
             <Stack pt={6}>
               <Text align={"center"}>
-                Already a user? <Link color={"blue.400"}>Login</Link>
+                Already a user?{" "}
+                <Link to="/login" color={"blue.400"}>
+                  Login
+                </Link>
               </Text>
             </Stack>
           </Stack>
