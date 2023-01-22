@@ -12,21 +12,41 @@ import {
   Tabs,
   Text,
 } from "@chakra-ui/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SingleProductCard from "./SingleProductCard";
+import { useSearchParams } from "react-router-dom";
 
 export default function ProductContainer({ data, loading }) {
   const [cn, setCn] = useState(0);
+  const [searchParams, setSearchParams] = useSearchParams();
   const handelToggle = () => {
     setCn(!cn);
   };
-  const selectChange=(e)=>{
+  const [catagory, setCatagory] = useState([]);
+  const [sort, setSort] = useState("");
+
+  const handelFilterChange = (e) => {
+    let newCategory = [...catagory];
+    if (newCategory.includes(e.target.vlaue)) {
+      newCategory.splice(newCategory.indexOf(e.target.value),1);
+    } else {
+      newCategory.push(e.target.value);
+    }
+    setCatagory(newCategory);
+  };
+  console.log(catagory)
+
+  useEffect(() => {
+    const param = {};
+    param.category = catagory;
+    param.sort = sort;
+    setSearchParams(param);
+  }, [catagory, sort]);
+
+  const selectChange = (e) => {
     //setlect tag vlaue
-  }
-
-
-
-
+    setSort(e.target.value)
+  };
 
   return (
     <Box w="100%">
@@ -53,9 +73,9 @@ export default function ProductContainer({ data, loading }) {
               onChange={selectChange}
             >
               <option value={"new_arival"}>New Arival</option>
-              <option value={"Best_seller"}>Best seller</option>
-              <option value={"Discount"}>Discount</option>
-              <option value={"Price"}>Price</option>
+              <option value={"-price"}>Price H to L</option>
+              <option value={"price"}>Price L To H</option>
+              <option value={"Price"}></option>
             </Select>
           </Box>
           <Box className="box">
@@ -79,42 +99,40 @@ export default function ProductContainer({ data, loading }) {
 
           <Tabs color={"white"}>
             <TabList onClick={handelToggle}>
-             
-                {" "}
-                <Tab>Subcatagory</Tab>
-             
-                {" "}
-                <Tab>Discount</Tab>
-              
-              
-                {" "}
-                <Tab>Price</Tab>
-              
-              
-                <Tab>age</Tab>
-             
-                {" "}
-                <Tab>gender</Tab>
-             
-                <Tab>color</Tab>
-            
+              {" "}
+              <Tab>Subcatagory</Tab> <Tab>Discount</Tab> <Tab>Price</Tab>
+              <Tab>age</Tab> <Tab>gender</Tab>
+              <Tab>color</Tab>
             </TabList>
 
-            {cn?
+            {cn ? (
               <TabPanels mb="20px">
                 <TabPanel>
                   <HStack spacing={3}>
                     <Box display={"flex"} gap={2}>
-                      <Text fontSize={"1px"}>Bath Item</Text>
-                      <input color="" type={"checkbox"} />
+                      <Text fontSize={"1px"}>GirlsTop</Text>
+                      <input
+                        type={"checkbox"}
+                        onChange={handelFilterChange}
+                        value={"girlstop"}
+                        checked={catagory.includes("girlstop")}
+                      />
                     </Box>
                     <Box display={"flex"} gap={2}>
-                      <Text fontSize={"1px"}>Shorts</Text>
-                      <input type={"checkbox"} />
+                      <Text fontSize={"1px"}>Baby-Wipes</Text>
+                      <input
+                        type={"checkbox"}
+                        onChange={handelFilterChange}
+                        value={"babywipes"}
+                      />
                     </Box>
                     <Box display={"flex"} gap={2}>
-                      <Text fontSize={"1px"}>Skirts</Text>
-                      <input type={"checkbox"} />
+                      <Text fontSize={"1px"}>Boys-Tshirt</Text>
+                      <input
+                        type={"checkbox"}
+                        onChange={handelFilterChange}
+                        value={"boystshirt"}
+                      />
                     </Box>
                   </HStack>
                 </TabPanel>
@@ -150,8 +168,8 @@ export default function ProductContainer({ data, loading }) {
                     </Box>
                   </HStack>
                 </TabPanel>
-              </TabPanels>:null
-            }
+              </TabPanels>
+            ) : null}
           </Tabs>
         </Box>
       </Box>

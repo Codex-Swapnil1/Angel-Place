@@ -9,8 +9,9 @@ import {
   Grid,
 } from "@chakra-ui/react";
 import { Button } from "antd";
+import { useEffect } from "react";
 import { useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import styled from "styled-components";
 
 export default function SingleProductCard({ data, loading }) {
@@ -19,13 +20,11 @@ export default function SingleProductCard({ data, loading }) {
 
   const [st, setst] = useState(false);
 
-const navigate=useNavigate()
-  const MoveTocart=(id)=>{
-     
-    navigate("/singleproduct/:id")
+  const navigate = useNavigate();
 
-  }
-
+  const MoveTocart = (id) => {
+    navigate("/singleproduct/:id");
+  };
 
   return (
     <>
@@ -62,7 +61,7 @@ const navigate=useNavigate()
                           all size and color availble{" "}
                         </Text>
                         <Box
-                          w="50%"
+                        
                           display={"flex"}
                           m="auto"
                           gap={"1"}
@@ -81,7 +80,9 @@ const navigate=useNavigate()
                       </Box>
                     </VStack>
                     <Box className="showdiv">
-                      <Button  onClick={()=>MoveTocart(elm._id)} >Add to cart</Button>
+                      <Text fontSize={'xs'}   onClick={() => MoveTocart(elm._id)}>
+                        Add to cart
+                      </Text>
                     </Box>
                   </Box>
                 </Singleproductwrapper>

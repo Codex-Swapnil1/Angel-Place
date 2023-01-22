@@ -12,12 +12,13 @@ import GirlsFashion from './sub_nav_component/GirlsFashion';
 import PreschoolComponent from './sub_nav_component/PreschoolComponent';
 import DeskstopNavList from './sub_nav_component/DeskstopNavList';
 import TabletNavbar from './sub_nav_component/TabletNavbar';
+import { Link } from 'react-router-dom';
 const Navbar = () => {
   return (
     <NavbarWrapper>
     <Box className='nav-top'>
       <Box className='nav-top-left'>
-        <Image className='logoimg' src={logo} alt="logo"/>
+       <Link to='/' > <Image   className='logoimg' src={logo} alt="logo"/></Link>
         <Box sx={{marginRight:"5px"}}>
         <InputGroup>
                           <Input
