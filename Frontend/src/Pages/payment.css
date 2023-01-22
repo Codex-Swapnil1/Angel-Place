@@ -1,0 +1,136 @@
+#navbar{
+    
+    background-color: #10847e;
+    
+    padding: 10px;
+}
+#navcontainer{
+    display: flex;
+    justify-content: space-between;
+    color:white;
+    width: 80%;
+    margin:auto;
+    font-size: larger;
+}
+
+#container{
+    display: flex;
+    width:80%;
+    margin:30px auto;
+    gap: 50px;
+    
+}
+.header{
+    font-weight: bolder;
+    font-size: x-large;
+    margin-bottom: 20px;    
+}
+
+
+#methodcontainer{
+    /* border: 1px solid gray; */
+    width:60%;
+}
+#offers{
+    border-bottom:1px solid gray;
+}
+
+#pricecontainer{
+    /* border: 1px solid gray; */
+    width:40%;
+    margin-top: 30px;
+}
+
+.paybox{
+    display: flex;
+    /* border-bottom: 1px solid gray; */
+    padding:5px;
+}
+.paybox p {
+    color: gray;
+    font-size: 12px;
+    width:100%;
+}
+
+.plogo{
+    width:13%;
+    border: 1px soid red;
+    margin:10px;
+}
+.plogo img{
+    width:100%;
+    /* height: 50%; */
+}
+.pmcontainer{
+    border-bottom: 1px solid gray;
+}
+.paymentheader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+}
+.paymentname{
+    font-size: large;
+    font-weight: bold;
+}
+.payradio{
+    justify-content: center;
+    /* text-align: center; */
+    align-items: center;
+    justify-items: center;
+}
+
+/* other options */
+.logos{
+    display: flex;
+
+}
+.logos img {
+    width:10%;
+    margin-left: 4px;
+    padding: 0px;
+    justify-content: left;
+}
+
+#othermethods{
+    border-bottom: 1px solid gray;
+}
+
+
+/* Price container */
+#pricecontainer{
+    font-size: larger;
+}
+#priceheader{
+    font-weight: bold;
+    font-size: large;
+    margin-bottom: 20px;
+}
+#amountdesc,#totalpaidamount{
+    border-bottom: 1px dotted gray;
+}
+.cartvalue{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+@media screen and (max-width:915px){
+    #container{
+        display: flex;
+        flex-direction: column;
+        width:90%;
+        margin:30px auto;
+        gap: 50px;
+        
+    }
+    #pricecontainer{
+        width:100%;
+    }
+    #methodcontainer{
+        width:100%;
+    }
+    #secpay{
+        display: none;
+    }
+}

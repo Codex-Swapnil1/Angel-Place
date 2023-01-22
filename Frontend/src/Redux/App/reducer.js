@@ -16,7 +16,7 @@ const reducer = (state = intstate, action) => {
       return { ...state, isLoading: true, isError: false, data: [] };
 
     case types.GETDATASUCCESS_succ:
-      return { ...state, isLoading: 0, isError: false, data: payload };
+      return { ...state, isLoading: false, isError: false, data: payload };
 
     case types.GETDATAERROR_err:
       return { ...state, isLoading: false, isError: true };

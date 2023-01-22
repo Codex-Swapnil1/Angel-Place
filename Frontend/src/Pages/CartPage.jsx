@@ -1,6 +1,8 @@
 import { Box, Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react'
 import React from 'react'
+import AddressComponent from '../Components/Cart/AddressComponent'
 import AvailableOfferComponents from '../Components/Cart/AvailableOfferComponents'
+import ProductCart from '../Components/Cart/ProductCart'
 
 const CartPage = () => {
   return (
@@ -13,7 +15,8 @@ const CartPage = () => {
       <TabPanel>
        <Box>
         <AvailableOfferComponents/>
-
+        <AddressComponent/>
+        <ProductCart/>
        </Box>
       </TabPanel>
       <TabPanel>

@@ -18,7 +18,7 @@ const reducer = (state = intstate, action) => {
       return { ...state, isLoading: true, isError: false, data: [] };
 
     case types.getuser_register_success:
-      return { ...state, isLoading: false, isError: false, message: payload };
+      return { ...state, isLoading: true, isError: false, message: payload };
 
     case types.getuser_register_failure:
       return { ...state, isLoading: false, isError: true ,error:payload };

@@ -10,12 +10,5 @@ const LOGIN_SUCC="LOGINSUCCESS";
 const LOGIN_FAILURE="LOGINFAILURE";
 
 
-export{getuser_register_failure,getuser_register_request,getuser_register_success
-
-,
-LOGIN_REQ
-,
-LOGIN_SUCC,
-LOGIN_FAILURE
-
+export{getuser_register_failure,getuser_register_request,getuser_register_success,LOGIN_REQ,LOGIN_SUCC,LOGIN_FAILURE
 }
