@@ -4,12 +4,14 @@ const intstate = {
   isLoading: false,
   isError: false,
   data: [],
+  cart:[]
 };
 
 const reducer = (state = intstate, action) => {
   const { payload, type } = action;
 
   switch (type) {
+    //get data
     case types.GETDATA_req:
       return { ...state, isLoading: true, isError: false, data: [] };
 
@@ -19,6 +21,16 @@ const reducer = (state = intstate, action) => {
     case types.GETDATAERROR_err:
       return { ...state, isLoading: false, isError: true };
 
+    // add product into bag -
+    case types.ADD_PRODUCT_REQUEST:
+      return { ...state, isLoading: true };
+
+    case types.ADD_PRODUCT_SUCCESS:
+      return { ...state, isLoading: false, cart: payload };
+
+    case types.ADD_PRODUCT_ERROR:
+      return { ...state, isLoading: false, isError: true };
+    
     default:
       return state;
   }
