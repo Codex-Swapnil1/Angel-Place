@@ -1,22 +1,31 @@
-import { Box, Image } from '@chakra-ui/react';
+import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Image } from '@chakra-ui/react';
 import React from 'react'
 import styled from 'styled-components';
 
 const AvailableOfferComponents = () => {
   return (
     <Offerwrapper>
-    <Box className='offer'>
+    <Accordion allowMultiple>
+  <AccordionItem>
+    <h2>
+      <AccordionButton>
+      <Box className='offer'>
         <Image w="16px" h="16px" src="https://cdn.fcglcdn.com/brainbees/checkout/pers.jpg" alt="offer" />
         <Box fontWeight={"bolder"}>Available offers:</Box>
-    </Box>
-    <Box>
-        <ul className='list-offer-css'>
+        </Box>
+        <AccordionIcon />
+      </AccordionButton>
+    </h2>
+    <AccordionPanel pb={4}>
+    <ul className='list-offer-css'>
             <li>Upto Rs. 500 Cashback on Paytm Wallet and Postpaid Transactions (Minimum Order Value: Rs. 1000) <span>T&C</span></li>
             <li>Get 5% Instant Discount Upto Rs. 500 on SBI Credit Cards (Minimum Order Value: Rs. 2000)<span>T&C</span></li>
             <li>Pay using Simpl and get 5% cashback upto Rs.250 (Minimum Order Value: Rs. 1200)<span>T&C</span></li>
             <li>Get 2X cashback upto Rs. 500 on CRED Pay UPI(Minimum Order Value: Rs.1000)<span>T&C</span></li>
-        </ul>
-    </Box>
+    </ul>
+    </AccordionPanel>
+  </AccordionItem>
+</Accordion>
     </Offerwrapper>
   )
 }
