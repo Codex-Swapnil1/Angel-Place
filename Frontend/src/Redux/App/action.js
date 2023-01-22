@@ -29,4 +29,18 @@ function getprData(payload) {
   };
 }
 
+//add to cart function
+export const addProductData = (payload) => (dispatch) => {
+  dispatch({ type: types.ADD_PRODUCT_REQUEST });
+  return axios
+    .post(`http://localhost:8080/user/addcart`, JSON.stringify(payload), {
+      headers: { "Content-Type": "application/json" },
+    })
+    .then((res) => {
+      dispatch({ type: types.ADD_PRODUCT_SUCCESS, payload: res.data });
+      // console.log(res.data)
+    })
+    .catch((err) => dispatch({ type: types.ADD_PRODUCT_ERROR }));
+};
+
 export { getdataerror_fn, getdatareq_fn, getdatasucc_fn, getprData };
