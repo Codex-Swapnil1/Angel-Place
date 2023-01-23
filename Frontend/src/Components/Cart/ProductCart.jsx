@@ -5,25 +5,36 @@ import styled from 'styled-components';
 
 const ProductCart = ({cartdata}) => {
   // let sum = 0;
-  let discount = 0;
+  // let discount = 0;
   // cartdata && cartdata.forEach(element => {
   //   sum+= element.mrp * element.qty;
   //   discount+= element.mrp- element.price
   // });
-  const [sum, setSum] = useState(0)
 
   const getTotal = () =>{
     const total = cartdata.reduce((prev, item) => {
         return prev + (item.mrp * item.qty)
     },0)
-
-    // setSum(sum)
     return total
+}
+const getDiscount = () =>{
+  const discount = cartdata.reduce((prev, item) => {
+      return prev + (item.mrp - item.price)
+  },0)
+  return discount
+}
+
+const getSubTotal = () =>{
+  const subtotal = cartdata.reduce((prev, item) => {
+      return prev + (item.price * item.qty)
+  },0)
+  return subtotal
 }
 
 
 
-
+let discount = getDiscount().toFixed(2);
+let subtotal = getSubTotal();
 let x = getTotal();
 console.log(x)
 
@@ -65,11 +76,11 @@ console.log(x)
     <Box className='payment-css'><p style={{color:"green"}}>Discount(-) </p>  <p style={{color:"green"}}>₹ {discount}</p></Box>
     <Box className='payment-css'><p>Estimated GST (+)  </p>  <p style={{color:"red"}}>₹ 162.26</p></Box>
     <Box className='payment-css'><p style={{color:"green"}}>Shipping (+) </p>  <p style={{color:"green"}}>FREE</p></Box>
-    <Box className='payment-css'><p>Sub Total </p>  <p>₹ 1951.51</p></Box>
+    <Box className='payment-css'><p>Sub Total </p>  <p>₹ {subtotal}</p></Box>
     <Divider border={"dashed gray"}/>
-    <Box className='payment-css1'><p>Sub Total </p>  <p>₹ 1951.51</p></Box>
+    <Box className='payment-css1'><p>Sub Total </p>  <p>₹ {subtotal}</p></Box>
     <Divider border={"dashed gray"}/>
-    <Box className='payment-css2'><p>Final Payment </p>  <p>₹ 1951.51</p></Box>
+    <Box className='payment-css2'><p>Final Payment </p>  <p>₹ {subtotal}</p></Box>
     </Box>
     </Box>
 
