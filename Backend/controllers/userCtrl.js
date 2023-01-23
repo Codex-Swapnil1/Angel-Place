@@ -1,5 +1,6 @@
-const Users = require("../models/userModel");
-// const Payments = require('../models/paymentModel')
+// const Users = require("../model/userModel");
+const {Users}=require('../model/userModel')
+
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
@@ -11,8 +12,8 @@ const userCtrl = {
       const user = await Users.findOne({ email });
       if (user)
         return res.status(400).json({ err: "The email already exists." });
-      
-       if (password.length < 6)
+
+      if (password.length < 6)
         return res
           .status(400)
           .json({ err: "Password is at least 6 characters Long." });
@@ -93,29 +94,21 @@ const userCtrl = {
     }
   },
   getUser: async (req, res) => {
-   const ID=req.params.id
-  
- 
+    const ID = req.params.id;
+
     try {
-
-
-
-       const user = await Users.findById(req.user.id).select("-password");
-      if (!user){ return res.status(400).json({ msg: "User does not exist." });
-     
-    }
-  //  if(ID){
-  //     console.log(ID)
-  //     const singleUser=await Users.findOne({_id:ID})
-  //     console.log(singleUser)
-  //     res.send("ok")
-  //   }
-    res.json(user);
-      
-    } 
-    
-    
-    catch (err) {
+      const user = await Users.findById(req.user.id).select("-password");
+      if (!user) {
+        return res.status(400).json({ msg: "User does not exist." });
+      }
+      //  if(ID){
+      //     console.log(ID)
+      //     const singleUser=await Users.findOne({_id:ID})
+      //     console.log(singleUser)
+      //     res.send("ok")
+      //   }
+      res.json(user);
+    } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
   },
@@ -126,17 +119,14 @@ const userCtrl = {
 
       //console.log(user.cart,"user")
 
-
-      const data=await Users.findOneAndUpdate(
+      const data = await Users.findOneAndUpdate(
         { _id: req.user.id },
         {
-          cart: [...user.cart,{...req.body}]
+          cart: [...user.cart, { ...req.body }],
         }
       );
-     
-      
 
-      return res.json({ msg: "Added to cart",userinfo:data });
+      return res.json({ msg: "Added to cart", userinfo: data });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }
@@ -159,4 +149,4 @@ const createRefreshToken = (user) => {
   return jwt.sign(user, process.env.REFRESH_TOKEN_SECRET, { expiresIn: "7d" });
 };
 
-module.exports = userCtrl;
+module.exports = {userCtrl};

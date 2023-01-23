@@ -1,4 +1,6 @@
-const Products = require("../Models/Product.Model");
+const { Products } = require("../model/productModel");
+
+//../Models/Product.Model
 
 // Filter, sorting and paginating
 
@@ -49,11 +51,16 @@ class APIfeatures {
 }
 
 const productCtrl = {
-    getProducts: async (req, res) => {
-        const params = req.params.id;
-        try {
-            const features = new APIfeatures(Products.find(params?{ _id:params }:null), req.query)
-            .filtering().sorting().paginating()
+  getProducts: async (req, res) => {
+    const params = req.params.id;
+    try {
+      const features = new APIfeatures(
+        Products.find(params ? { _id: params } : null),
+        req.query
+      )
+        .filtering()
+        .sorting()
+        .paginating();
 
       const products = await features.query;
 
@@ -77,7 +84,7 @@ const productCtrl = {
         images,
         category,
       } = req.body;
-      if (!images) return res.status(400).json({ msg: "No image upload" });
+      if (images) return res.status(400).json({ msg: "No image upload" });
 
       const product = await Products.findOne({ product_id });
       if (product)
@@ -85,7 +92,7 @@ const productCtrl = {
 
       const newProduct = new Products({
         product_id,
-        title: title.toLowerCase(),
+        title: title?.toLowerCase(),
         price,
         description,
         content,
@@ -131,4 +138,4 @@ const productCtrl = {
   },
 };
 
-module.exports = productCtrl;
+module.exports = {productCtrl};

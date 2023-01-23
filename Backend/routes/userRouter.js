@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-const userCtrl = require("../controllers/userCtrl");
+const {userCtrl} = require("../controllers/userCtrl");
 const auth = require("../mddleware/auth");
 
 router.post("/register", userCtrl.register);

@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const categoryCtrl = require("../controllers/categoryCtrl");
+const {categoryCtrl} = require("../controllers/categoryCtrl");
 const auth = require("../mddleware/auth");
 const authAdmin = require("../mddleware/authAdmin");
 
@@ -13,4 +13,4 @@ router
   .delete(auth, authAdmin, categoryCtrl.deleteCategory)
   .put(auth, authAdmin, categoryCtrl.updateCategory);
 
-module.exports = router;
+module.exports = router

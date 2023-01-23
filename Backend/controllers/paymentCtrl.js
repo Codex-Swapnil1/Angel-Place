@@ -1,6 +1,7 @@
-const Payments = require("../models/paymentModel");
-const Users = require("../models/userModel");
-const Products = require("../Models/Product.Model");
+const {Payments} = require("../model/paymentModel");
+const {Users} = require("../model/userModel");
+const {Products} = require("../model/productModel");
+//../Models/Product.Model
 
 const paymentCtrl = {
   getPayments: async (req, res) => {
@@ -50,4 +51,4 @@ const sold = async (id, quantity, oldSold) => {
   );
 };
 
-module.exports = paymentCtrl;
+module.exports = {paymentCtrl};

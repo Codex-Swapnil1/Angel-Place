@@ -1,6 +1,6 @@
-const Category = require("../models/categoryModel");
-const Products = require("../Models/Product.Model");
-
+const { Category } = require("../model/categoryModel");
+const { Products } = require("../model/productModel");
+//../Models/Product.Model
 const categoryCtrl = {
   getCategories: async (req, res) => {
     try {
@@ -53,4 +53,4 @@ const categoryCtrl = {
   },
 };
 
-module.exports = categoryCtrl;
+ module.exports = {categoryCtrl}
