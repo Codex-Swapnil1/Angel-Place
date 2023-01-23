@@ -1,13 +1,13 @@
 #navbar{
     
-    background-color: #10847e;
+    background-color: #e1edec;
     
     padding: 10px;
 }
 #navcontainer{
     display: flex;
     justify-content: space-between;
-    color:white;
+    color:rgb(237, 231, 231);
     width: 80%;
     margin:auto;
     font-size: larger;

@@ -13,7 +13,7 @@ const ProductCart = ({cartdata}) => {
   const [sum, setSum] = useState(0)
 
   const getTotal = () =>{
-    const total = cartdata.reduce((prev, item) => {
+    const total = cartdata&&cartdata.reduce((prev, item) => {
         return prev + (item.mrp * item.qty)
     },0)
 
@@ -25,7 +25,7 @@ const ProductCart = ({cartdata}) => {
 
 
 let x = getTotal();
-console.log(x)
+
 
 
   return (
@@ -61,7 +61,7 @@ console.log(x)
     <Box>
     <Box className='payment-container'>
     <Box fontWeight={"bold"}>Payment Information</Box>
-    <Box className='payment-css'><p>Value of Product(s)</p>  <p>₹ {x}</p></Box>
+    <Box className='payment-css'><p>Value of Product(s)</p>  <p>₹ {x?x:""}</p></Box>
     <Box className='payment-css'><p style={{color:"green"}}>Discount(-) </p>  <p style={{color:"green"}}>₹ {discount}</p></Box>
     <Box className='payment-css'><p>Estimated GST (+)  </p>  <p style={{color:"red"}}>₹ 162.26</p></Box>
     <Box className='payment-css'><p style={{color:"green"}}>Shipping (+) </p>  <p style={{color:"green"}}>FREE</p></Box>
