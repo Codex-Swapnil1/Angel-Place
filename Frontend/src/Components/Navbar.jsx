@@ -13,7 +13,10 @@ import PreschoolComponent from './sub_nav_component/PreschoolComponent';
 import DeskstopNavList from './sub_nav_component/DeskstopNavList';
 import TabletNavbar from './sub_nav_component/TabletNavbar';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 const Navbar = () => {
+  const auth1 = useSelector(store=>store.Authreducer.data)
+  console.log(auth1);
   return (
     <NavbarWrapper>
     <Box className='nav-top'>
