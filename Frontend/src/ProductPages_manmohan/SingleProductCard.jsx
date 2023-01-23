@@ -14,6 +14,8 @@ import { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import styled from "styled-components";
+import Loading from "./loading";
+
 
 export default function SingleProductCard({ data }) {
   let date = new Date();
@@ -23,34 +25,22 @@ export default function SingleProductCard({ data }) {
 
   const navigate = useNavigate();
   const loading = useSelector((store) => store.Appreducer.isLoading);
-  console.log(loading, "dsfj");
+ 
 
   const MoveTocart = (id) => {
     navigate(`/product/${id}`);
   };
+  if(loading){
+    return<div><Loading></Loading></div>
+  }
 
   return (
     <>
       <Box className="singlePr">
         {data.length > 0
           ? data.map((elm) => {
-              return loading ? (
-                <Box
-                  key={elm._id}
-                  padding="6"
-                  boxShadow="lg"
-                  bg="gray.400"
-                  w="full"
-                >
-                  <SkeletonCircle size="10" />
-                  <SkeletonText
-                    mt="4"
-                    noOfLines={4}
-                    spacing="4"
-                    skeletonHeight="2"
-                  />
-                </Box>
-              ) : (
+              return (
+              
                 <Singleproductwrapper key={elm._id}>
                   <Box className="single-child">
                     <Image src={elm.img} alt="img" />

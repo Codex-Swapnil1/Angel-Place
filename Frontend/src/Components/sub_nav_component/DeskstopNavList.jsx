@@ -11,7 +11,7 @@ const DeskstopNavList = () => {
   const islogin = useSelector((store) => store.Authreducer.data?.user);
 
   const handelLogout=()=>{
-    axios.get('http://localhost:8080/user/logout')
+    axios.get('https://lazy-puce-fawn.cyclic.app/user/logout')
         
     localStorage.removeItem('token')
     

@@ -28,7 +28,7 @@ const get_login_failure_fn = () => {
 const Login_handeler = (payload) => (dispatch) => {
   dispatch(get_login_req_fn());
   return axios
-    .post("http://localhost:8080/user/login", payload)
+    .post("https://lazy-puce-fawn.cyclic.app/user/login", payload)
     .then((res) => {
        console.log(res.data)
       dispatch(get_login_succ_fn(res.data))
@@ -43,7 +43,7 @@ const Login_handeler = (payload) => (dispatch) => {
 const Register = (payload) => (dispatch) => {
   dispatch(Get_user_req_fn());
   return axios
-    .post("http://localhost:8080/user/register", payload)
+    .post("https://lazy-puce-fawn.cyclic.app/user/register", payload)
     .then((res) => {
       console.log(res.data.msg);
 

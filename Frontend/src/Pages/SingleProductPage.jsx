@@ -36,7 +36,7 @@ const SingleProductPage = () => {
   const cancelRef = React.useRef();
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/api/products/${id}`).then((res) => {
+    axios.get(`https://lazy-puce-fawn.cyclic.app/api/products/${id}`).then((res) => {
       // console.log(res.data.products[0])
       setData(res.data.products[0]);
     });
@@ -46,7 +46,7 @@ const SingleProductPage = () => {
 
   const getcart = (userid) => {
     axios
-      .get(`http://localhost:8080/user`)
+      .get(`https://lazy-puce-fawn.cyclic.app/user`)
       .then((res) => console.log(res.data));
   };
   // getcart(userid)

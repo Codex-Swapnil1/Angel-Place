@@ -19,7 +19,7 @@ function getprData(payload) {
     dispatch(getdatareq_fn());
 
     return axios
-      .get(`http://localhost:8080/api/products`, payload)
+      .get(`https://lazy-puce-fawn.cyclic.app/api/products`, payload)
       .then((res) => {
         dispatch(getdatasucc_fn(res.data.products));
       })
@@ -33,7 +33,7 @@ function getprData(payload) {
 export const addProductData = (payload) => (dispatch) => {
   dispatch({ type: types.ADD_PRODUCT_REQUEST });
   return axios
-    .post('http://localhost:8080/user/addcart', payload, {
+    .post('https://lazy-puce-fawn.cyclic.app/user/addcart', payload, {
       headers: { "Content-Type": "application/json",
       Authorization:( localStorage.getItem("token") )}
 
