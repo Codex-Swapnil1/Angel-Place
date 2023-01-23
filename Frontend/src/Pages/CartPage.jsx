@@ -7,9 +7,7 @@ import ProductCart from "../Components/Cart/ProductCart";
 
 const CartPage = () => {
    
-  const getCart=()=>{
-    axios.get("http://localhost:8080/user/")
-  }
+
 
   return (
     <div>

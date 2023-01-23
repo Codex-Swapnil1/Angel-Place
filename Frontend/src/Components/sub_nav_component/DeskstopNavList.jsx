@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import { CiHeart, CiLocationOn } from "react-icons/ci";
 import { useSelector } from "react-redux";
@@ -10,7 +11,11 @@ const DeskstopNavList = () => {
   const islogin = useSelector((store) => store.Authreducer.data?.user);
 
   const handelLogout=()=>{
+    axios.get('http://localhost:8080/user/logout')
+        
+    localStorage.removeItem('token')
     
+    window.location.href="/";
   }
 
   return (

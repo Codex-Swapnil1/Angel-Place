@@ -33,11 +33,14 @@ function getprData(payload) {
 export const addProductData = (payload) => (dispatch) => {
   dispatch({ type: types.ADD_PRODUCT_REQUEST });
   return axios
-    .post(`http://localhost:8080/user/addcart`, JSON.stringify(payload), {
-      headers: { "Content-Type": "application/json" },
+    .post('http://localhost:8080/user/addcart', payload, {
+      headers: { "Content-Type": "application/json",
+      Authorization:( localStorage.getItem("token") )}
+
     })
     .then((res) => {
-      dispatch({ type: types.ADD_PRODUCT_SUCCESS, payload: res.data });
+      console.log(res.data.userinfo,"user")
+      dispatch({ type: types.ADD_PRODUCT_SUCCESS, payload: res.data.userinfo });
       // console.log(res.data)
     })
     .catch((err) => dispatch({ type: types.ADD_PRODUCT_ERROR }));

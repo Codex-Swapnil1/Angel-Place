@@ -28,10 +28,10 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 const Navbar = () => {
   const {username,cart} = useSelector((store) =>{
-    return {username:store.Authreducer.data.user?.name, cart:store.Authreducer.data.user?.cart}
+    return {username:store.Authreducer.data.user?.name, cart:store.Appreducer.data.cart}
   });
 
-
+ 
 
 
   return (

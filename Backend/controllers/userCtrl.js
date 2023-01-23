@@ -93,12 +93,29 @@ const userCtrl = {
     }
   },
   getUser: async (req, res) => {
+   const ID=req.params.id
+  
+ 
     try {
-      const user = await Users.findById(req.user.id).select("-password");
-      if (!user) return res.status(400).json({ msg: "User does not exist." });
 
-      res.json(user);
-    } catch (err) {
+
+
+       const user = await Users.findById(req.user.id).select("-password");
+      if (!user){ return res.status(400).json({ msg: "User does not exist." });
+     
+    }
+  //  if(ID){
+  //     console.log(ID)
+  //     const singleUser=await Users.findOne({_id:ID})
+  //     console.log(singleUser)
+  //     res.send("ok")
+  //   }
+    res.json(user);
+      
+    } 
+    
+    
+    catch (err) {
       return res.status(500).json({ msg: err.message });
     }
   },
@@ -107,14 +124,19 @@ const userCtrl = {
       const user = await Users.findById(req.user.id);
       if (!user) return res.status(400).json({ msg: "User does not exist." });
 
-      await Users.findOneAndUpdate(
+      //console.log(user.cart,"user")
+
+
+      const data=await Users.findOneAndUpdate(
         { _id: req.user.id },
         {
-          cart: req.body.cart,
+          cart: [...user.cart,{...req.body}]
         }
       );
+     
+      
 
-      return res.json({ msg: "Added to cart" });
+      return res.json({ msg: "Added to cart",userinfo:data });
     } catch (err) {
       return res.status(500).json({ msg: err.message });
     }

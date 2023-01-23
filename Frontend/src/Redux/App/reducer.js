@@ -26,7 +26,10 @@ const reducer = (state = intstate, action) => {
       return { ...state, isLoading: true };
 
     case types.ADD_PRODUCT_SUCCESS:
-      return { ...state, isLoading: false, cart: payload };
+
+    console.log(payload, "payloaddd")
+
+      return { ...state, isLoading: false, data: payload };
 
     case types.ADD_PRODUCT_ERROR:
       return { ...state, isLoading: false, isError: true };
