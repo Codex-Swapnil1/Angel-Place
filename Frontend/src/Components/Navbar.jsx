@@ -13,7 +13,10 @@ import PreschoolComponent from './sub_nav_component/PreschoolComponent';
 import DeskstopNavList from './sub_nav_component/DeskstopNavList';
 import TabletNavbar from './sub_nav_component/TabletNavbar';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 const Navbar = () => {
+  const auth1 = useSelector(store=>store.Authreducer.data)
+  console.log(auth1);
   return (
     <NavbarWrapper>
     <Box className='nav-top'>
@@ -101,9 +104,9 @@ gap:5px;
   max-height: 50px;
 }
 .logoimg{
-  width: 113px;
-  border-radius : 5px
-
+  max-width: 113px;
+  border-radius : 5px;
+  max-height: 50px;
 }
 .desktop-nav-top-right{
   list-style-type: none;
@@ -258,7 +261,26 @@ gap:5px;
     padding: 5px 6px;
 }
 }
-@media only screen and (min-width: 320px) and (max-width: 770px){
+.tablet-nav-top-right{
+  list-style-type: none;
+  display : flex;
+  gap : 8px;
+  font-size : 11px;
+  cursor : pointer;
+}
+.tablet-nav-top-right li{
+  :hover{
+    text-decoration: underline;
+  }
+  border-right: 0.5px solid lightgray;
+  margin:0px;
+  padding-right: 5px;
+  }
+  .location-navv{
+    display: flex;
+    gap : 5px;
+  }
+@media only screen and (min-width: 546px) and (max-width: 770px){
 .desktop-nav-list{
   display: none;
 }
@@ -325,5 +347,77 @@ gap:5px;
     padding: 5px 6px;
 }
 }
-
+@media only screen and (min-width: 320px) and (max-width:546px){
+  .tablet-nav-top-right li{
+      font-size: 11px;
+    }
+    .parents{
+      display: none;
+    }
+    .desktop-nav-list{
+  display: none;
+}
+.tablet-nav-list{
+  display: block;
+}
+.cart-css{
+  font-weight:light;
+  font-size:38px;
+}
+.cart-css{
+  font-weight:light;
+  font-size:30px;
+}
+.count-position{
+    font-weight:lighter;
+    font-size:13px;
+    position: relative;
+    left: 26px;
+    top:4px;
+    cursor: pointer;
+    opacity: 1;
+    z-index: 101px;
+    padding: 0px;
+    margin: 0px;
+    color:#ff7043;
+    font-weight:bold;
+  }
+  .location-nav{
+  display: flex;
+    gap : 5px;
+    border-right:none;
+    font-weight:400;
+    font-size:16px;
+}
+.nav-bottom{
+    background-color:#ffd91c;
+  padding:0px 4%;
+  display: flex;
+  margin: auto;
+  text-align: center;
+  font-size: 11px;
+  gap: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+.category-list{
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.category-list div{
+  cursor: pointer;
+  font-size: 11px;
+    border-right: none;
+    :hover{
+      text-decoration: none;
+      background-color: white;
+    };
+    font-weight: 400;
+    padding: 5px 6px;
+}
+}
 `
