@@ -58,139 +58,139 @@ const SingleProductPage = () => {
   };
 
   const cart = useSelector((store) => store.Appreducer.data.cart);
-  
+
 
   return (
     <>
       <Navbar />
-      <div style={{ margin: "10%", marginTop: "20px" }}>
-        <SimpleGrid columns={{ base: 1, sm: 1, md: 2 }} className="single-div">
-          <img className="single-div-img" src={data.img} />
+    <div style={{ margin: "10%", marginTop: "20px" }}>
+      <SimpleGrid columns={{ base: 1, sm: 1, md: 2 }} className="single-div">
+        <img className="single-div-img" src={data.img} />
 
-          <div
-            style={{ lineHeight: "30px", marginLeft: "5%", marginRight: "5%" }}
-          >
-            <Heading as="h6">
-              <b>{data.title}</b>
-            </Heading>
+        <div
+          style={{ lineHeight: "30px", marginLeft: "5%", marginRight: "5%" }}
+        >
+          <Heading as="h6">
+            <b>{data.title}</b>
+          </Heading>
 
-            <Text fontSize="lg">{data.description}</Text>
+          <Text fontSize="lg">{data.description}</Text>
 
-            {currrentPro.shadeCount !== "" ? (
-              <p>{currrentPro.shadeCount}</p>
-            ) : (
-              <p>{currrentPro.shadeCount} </p>
-            )}
+          {currrentPro.shadeCount !== "" ? (
+            <p>{currrentPro.shadeCount}</p>
+          ) : (
+            <p>{currrentPro.shadeCount} </p>
+          )}
 
-            <Text fontSize="lg">
-              <StarIcon color={"pink"} />4 | 40 ratings{" "}
-            </Text>
+          <Text fontSize="lg">
+            <StarIcon color={"pink"} />4 | 40 ratings{" "}
+          </Text>
 
-            <Text fontSize="lg">
-              <strike>{data.mrp}</strike>
-              <span className="dis">{data.discount}</span>
-            </Text>
+          <Text fontSize="lg">
+            <strike>{data.mrp}</strike>
+            <span className="dis">{data.discount}</span>
+          </Text>
 
-            <Text fontSize="lg">
-              <b> {data.price}</b>
-              <span className="dis">(MRP incl. of all taxes)</span>
-            </Text>
+          <Text fontSize="lg">
+            <b> {data.price}</b>
+            <span className="dis">(MRP incl. of all taxes)</span>
+          </Text>
 
-            <>
-              <Button
-                leftIcon={<StarIcon />}
-                colorScheme="orange"
-                onClick={onOpen}
-              >
-                ADD TO Cart
-              </Button>
+          <>
+            <Button
+              leftIcon={<StarIcon />}
+              colorScheme="orange"
+              onClick={onOpen}
+            >
+              ADD TO Cart
+            </Button>
 
-              <AlertDialog
-                isOpen={isOpen}
-                leastDestructiveRef={cancelRef}
-                onClose={onClose}
-              >
-                <AlertDialogOverlay>
-                  <AlertDialogContent>
-                    <AlertDialogHeader fontSize="lg" fontWeight="bold">
-                      Product is adding to bag...
-                    </AlertDialogHeader>
+            <AlertDialog
+              isOpen={isOpen}
+              leastDestructiveRef={cancelRef}
+              onClose={onClose}
+            >
+              <AlertDialogOverlay>
+                <AlertDialogContent>
+                  <AlertDialogHeader fontSize="lg" fontWeight="bold">
+                    Product is adding to bag...
+                  </AlertDialogHeader>
 
-                    <AlertDialogBody>Are you sure?</AlertDialogBody>
+                  <AlertDialogBody>Are you sure?</AlertDialogBody>
 
-                    <AlertDialogFooter>
-                      <Button ref={cancelRef} onClick={onClose}>
-                        CANCEL
-                      </Button>
-                      <Button colorScheme="red" onClick={addToBag} ml={3}>
-                        ADD
-                      </Button>
-                    </AlertDialogFooter>
-                  </AlertDialogContent>
-                </AlertDialogOverlay>
-              </AlertDialog>
-            </>
+                  <AlertDialogFooter>
+                    <Button ref={cancelRef} onClick={onClose}>
+                      CANCEL
+                    </Button>
+                    <Button colorScheme="red" onClick={addToBag} ml={3}>
+                      ADD
+                    </Button>
+                  </AlertDialogFooter>
+                </AlertDialogContent>
+              </AlertDialogOverlay>
+            </AlertDialog>
+          </>
 
+          <br></br>
+
+          <div>
             <br></br>
-
-            <div>
-              <br></br>
-              <Heading
-                as="h6"
-                style={{
-                  backgroundColor: "",
-                  width: "auto",
-                  padding: "5px",
-                  alignItems: "center",
-                  justifyContent: "space-around",
-                }}
-              >
+            <Heading
+              as="h6"
+              style={{
+                backgroundColor: "",
+                width: "auto",
+                padding: "5px",
+                alignItems: "center",
+                justifyContent: "space-around",
+              }}
+            >
                 You will receive <b> cashback worth ₹10 </b> as
                 angelplace_Points on this purchase
-              </Heading>
-              <br></br>
-              <Text fontSize="lg">
-                Note : Mix of Taxes and discount may change depending the amount
-                of tax being borne by the Company. However, the final price as
-                charged from customer will remain same. Taxes collected against
+            </Heading>
+            <br></br>
+            <Text fontSize="lg">
+              Note : Mix of Taxes and discount may change depending the amount
+              of tax being borne by the Company. However, the final price as
+              charged from customer will remain same. Taxes collected against
                 every transaction will be paid to the Government by
                 FirstCry.com. Please refer to the Terms of Use for full details.
-              </Text>
+            </Text>
 
-              <br></br>
-              <ul>
-                <Text fontSize="lg">
-                  <b>Product Description</b>
-                </Text>
-                <li>Fabric - 100% Cotton/Knit</li>
-                <li>Ready To wash </li>
-                <li>Long wearing formula</li>
-                <li>High immediate pay off</li>
-                <li>Lightweight and comfortable on childrens</li>
-              </ul>
-              <br></br>
+            <br></br>
+            <ul>
+              <Text fontSize="lg">
+                <b>Product Description</b>
+              </Text>
+              <li>Fabric - 100% Cotton/Knit</li>
+              <li>Ready To wash </li>
+              <li>Long wearing formula</li>
+              <li>High immediate pay off</li>
+              <li>Lightweight and comfortable on childrens</li>
+            </ul>
+            <br></br>
 
-              <Text fontSize="lg">
-                <b>Net Weight:</b>4.5 g
-              </Text>
-              <br></br>
+            <Text fontSize="lg">
+              <b>Net Weight:</b>4.5 g
+            </Text>
+            <br></br>
 
-              <Text fontSize="lg">
-                <b>Country of Origin:</b>Formulated in Itely
-              </Text>
-              <br></br>
-              <Text fontSize="lg">
-                <b>Disclaimer:</b>This product is available on high demands.
-              </Text>
+            <Text fontSize="lg">
+              <b>Country of Origin:</b>Formulated in Itely
+            </Text>
+            <br></br>
+            <Text fontSize="lg">
+              <b>Disclaimer:</b>This product is available on high demands.
+            </Text>
 
-              <Text fontSize="lg">
-                <b>Important:</b>All products that will be shipped will have a
-                shelf-life of minimum 8 months to 12 months.
-              </Text>
-            </div>
+            <Text fontSize="lg">
+              <b>Important:</b>All products that will be shipped will have a
+              shelf-life of minimum 8 months to 12 months.
+            </Text>
           </div>
-        </SimpleGrid>
-      </div>
+        </div>
+      </SimpleGrid>
+    </div>
     </>
   );
 };
