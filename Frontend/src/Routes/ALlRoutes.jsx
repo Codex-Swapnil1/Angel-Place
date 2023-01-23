@@ -30,10 +30,9 @@ export default function AllRoutes() {
 
       {/* <Route path="/cart"  element={<Cart/>} ></Route> */}
       <Route path="/admin" element={<MainLayout />}>
-        
+
         <Route index element={<AdminDashboard />} />
       </Route>
     </Routes>
   );
 }
-
