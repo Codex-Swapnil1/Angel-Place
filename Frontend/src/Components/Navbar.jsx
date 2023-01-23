@@ -31,7 +31,7 @@ const Navbar = () => {
     return {username:store.Authreducer.data.user?.name, cart:store.Appreducer.data.cart}
   });
 
- 
+
 
 
   return (

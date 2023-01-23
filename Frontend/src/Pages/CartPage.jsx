@@ -1,14 +1,16 @@
 import { Box, Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
 import axios from "axios";
 import React from "react";
+import { useSelector } from "react-redux";
 import AddressComponent from "../Components/Cart/AddressComponent";
 import AvailableOfferComponents from "../Components/Cart/AvailableOfferComponents";
 import ProductCart from "../Components/Cart/ProductCart";
 
 const CartPage = () => {
-   
 
+  const cartdata = useSelector(store=>store.Appreducer.data.cart);
 
+console.log(cartdata);
   return (
     <div>
       <Tabs size="md" variant="enclosed">
@@ -21,7 +23,7 @@ const CartPage = () => {
             <Box>
               <AvailableOfferComponents />
               <AddressComponent />
-              <ProductCart />
+              <ProductCart cartdata={cartdata} />
             </Box>
           </TabPanel>
           <TabPanel>
