@@ -39,19 +39,23 @@ export default function LoginCard() {
     setuserIp({ ...userip, [name]: value });
   };
 
-  const { loading, token, error } = useSelector((store) => {
+  const { loading,data ,error } = useSelector((store) => {
     return {
       loading: store.Authreducer.isLoading,
-      token: store.Authreducer.token,
+      data: store.Authreducer.data,
       error: store.Authreducer.isError,
     };
   });
 
+  
+
   const navigate = useNavigate();
-  if (token == "token cant genrated") {
+  if (data?.accesstoken== "token cant genrated") {
   }
-  if (token) {
-    localStorage.setItem("token", token);
+  if (data?.accesstoken
+    ) {
+    localStorage.setItem("token", data?.accesstoken
+    );
     navigate("/");
   }
 
@@ -61,6 +65,24 @@ export default function LoginCard() {
 
   return (
     <Box>
+      <Box>
+        {data?.accesstoken && data.accesstoken ? (
+          <Alert status="error">
+            <AlertIcon />
+            There was an error processing your request
+          </Alert>
+        ) : (
+          ""
+        )}
+      </Box>
+       {error && error ? (
+        <Alert status="error">
+          <AlertIcon />
+          There was an error processing your request
+        </Alert>
+      ) : (
+        ""
+      )}
       <Flex
         minH={"100vh"}
         align={"center"}
@@ -138,24 +160,8 @@ export default function LoginCard() {
           </Box>
         </Stack>
       </Flex>
-      {error && error ? (
-        <Alert status="error">
-          <AlertIcon />
-          There was an error processing your request
-        </Alert>
-      ) : (
-        ""
-      )}
-      <Box>
-        {token && token ? (
-          <Alert status="error">
-            <AlertIcon />
-            There was an error processing your request
-          </Alert>
-        ) : (
-          ""
-        )}
-      </Box>
+     
+      
     </Box>
   );
 }

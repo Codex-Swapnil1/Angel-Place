@@ -3,7 +3,7 @@ import * as types from "./actionTypes";
 const intstate = {
   isLoading: false,
   isError: false,
-  token: "",
+  
   data: [],
   message:"",
   error:""
@@ -26,7 +26,7 @@ const reducer = (state = intstate, action) => {
 
       case types.LOGIN_REQ:return {...state, isLoading:true,isError:false,token:""}
 
-      case types.LOGIN_SUCC:return {...state, isLoading:false , isError:false , token:payload}
+      case types.LOGIN_SUCC:return {...state, isLoading:false , isError:false , data:payload}
 
       case types.LOGIN_FAILURE:return {...state, isLoading:false ,isError:true, }
 

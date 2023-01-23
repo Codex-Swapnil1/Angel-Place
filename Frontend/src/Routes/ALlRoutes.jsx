@@ -15,6 +15,7 @@ import Payment from "../Pages/Paymetn";
 import ProductPage from "../ProductPages_manmohan/ProductPage";
 import LoginCard from "../register/Login";
 import SignupCard from "../register/Register";
+import PrivateRoute from "../Components/privateRoute/Private";
 
 export default function AllRoutes() {
   return (
@@ -22,7 +23,7 @@ export default function AllRoutes() {
       <Route path="/product" element={<ProductPage />}></Route>
       <Route path="/" element={<Homepage />}></Route>
       <Route path="/product/:id" element={<SingleProductPage/>}></Route>
-      <Route path="/cart" element={<h1>cart page</h1>}></Route>
+     <Route path="/cart" element={ <PrivateRoute><CartPage/></PrivateRoute>}></Route>
       <Route path="/login" element={<LoginCard />}></Route>
       <Route path="/register" element={<SignupCard />}></Route>
       <Route path="/payment" element={<Payment/>} ></Route>

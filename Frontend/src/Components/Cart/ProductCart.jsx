@@ -4,6 +4,10 @@ import { BsSuitHeart, BsTrash } from 'react-icons/bs';
 import styled from 'styled-components';
 
 const ProductCart = () => {
+  
+  
+  
+  
   return (
     <ProductWrapper>
     <Box className='main-container'>

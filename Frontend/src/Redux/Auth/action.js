@@ -18,8 +18,8 @@ const Get_user_register_error_fn = (payload) => {
 const get_login_req_fn = () => {
   return { type: types.LOGIN_REQ };
 };
-const get_login_succ_fn = (token) => {
-  return { type: types.LOGIN_SUCC, payload: token };
+const get_login_succ_fn = (userdata) => {
+  return { type: types.LOGIN_SUCC, payload: userdata };
 };
 const get_login_failure_fn = () => {
   return { type: types.LOGIN_FAILURE };
@@ -30,8 +30,8 @@ const Login_handeler = (payload) => (dispatch) => {
   return axios
     .post("http://localhost:8080/user/login", payload)
     .then((res) => {
-       
-      dispatch(get_login_succ_fn(res.data.accesstoken))
+       console.log(res.data)
+      dispatch(get_login_succ_fn(res.data))
     
     })
     .catch((err) => {

@@ -23,6 +23,7 @@ import {
 } from "@chakra-ui/react";
 
 import axios from "axios";
+import Navbar from "../Components/Navbar";
 
 const SingleProductPage = () => {
   const { id } = useParams();
@@ -53,7 +54,8 @@ const SingleProductPage = () => {
   };
   
 
-  return (
+  return (<>
+    <Navbar/>
     <div style={{ margin: "10%", marginTop: "20px" }}>
       <SimpleGrid columns={{ base: 1, sm: 1, md: 2 }} className="single-div">
         <img className="single-div-img" src={data.img} />
@@ -182,6 +184,7 @@ const SingleProductPage = () => {
         </div>
       </SimpleGrid>
     </div>
+    </>
   );
 };
 

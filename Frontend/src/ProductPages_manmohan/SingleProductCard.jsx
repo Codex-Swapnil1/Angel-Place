@@ -26,7 +26,7 @@ export default function SingleProductCard({ data }) {
   console.log(loading, "dsfj");
 
   const MoveTocart = (id) => {
-    navigate("/singleproduct/:id");
+    navigate(`/product/${id}`);
   };
 
   return (
