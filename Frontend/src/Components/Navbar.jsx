@@ -31,8 +31,8 @@ const Navbar = () => {
     return {username:store.Authreducer.data.user?.name, cart:store.Authreducer.data.user?.cart}
   });
 
-  
-  
+
+
 
   return (
     <NavbarWrapper>
@@ -135,8 +135,9 @@ const NavbarWrapper = styled.div`
     max-height: 50px;
   }
   .logoimg {
-    width: 113px;
+    max-width: 130px;
     border-radius: 5px;
+    max-height: 50px;
   }
   .desktop-nav-top-right {
     list-style-type: none;
